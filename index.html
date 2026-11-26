@@ -1,0 +1,3605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>مِشْكاة المعرفة — الموسوعة الثقافية الشاملة</title>
+  <!-- خطوط عربية متناغمة من Google Fonts (الاعتماد الخارجي الوحيد) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================================
+       1. المتغيرات اللونية والهوية البصرية (الوضع الداكن الزمردي + الفاتح الدافئ)
+       ========================================================================= */
+    :root {
+      --bg: #eef3ee;
+      --bg-soft: #e3ece4;
+      --card: #fafcf8;
+      --card-glass: rgba(250, 252, 248, 0.88);
+      --tx: #182923;
+      --mu: #526a61;
+      --ac: #247253;
+      --ac-hover: #1d5d44;
+      --ac-glow: rgba(36, 114, 83, 0.22);
+      --acx: #ffffff;
+      --gold: #b57e1d;
+      --gold-bg: rgba(181, 126, 29, 0.14);
+      --bd: #cfdcd1;
+      --bad: #b84b34;
+      --bad-bg: rgba(184, 75, 52, 0.12);
+      --good: #1c8556;
+      --good-bg: rgba(28, 133, 86, 0.13);
+      --warn: #b97a10;
+      --warn-bg: rgba(185, 122, 16, 0.14);
+      --shadow: 0 10px 28px rgba(17, 36, 28, 0.08);
+      --shadow-lg: 0 18px 42px rgba(17, 36, 28, 0.15);
+
+      /* تدرجات التصنيفات في الوضع الفاتح */
+      --g-s: linear-gradient(145deg, #d7efef, #a9dad6); --c-s: #125d57;
+      --g-h: linear-gradient(145deg, #f5e3cf, #e5be96); --c-h: #824916;
+      --g-p: linear-gradient(145deg, #e5e1f6, #c6bce8); --c-p: #4f3a8f;
+      --g-l: linear-gradient(145deg, #f9e1e9, #ecbfd0); --c-l: #94294c;
+      --g-g: linear-gradient(145deg, #d9edf8, #b0d7f0); --c-g: #165e8c;
+      --g-m: linear-gradient(145deg, #dcf4e5, #b1e2c5); --c-m: #176e40;
+      --g-t: linear-gradient(145deg, #dde7fa, #b8cef4); --c-t: #234b91;
+      --g-a: linear-gradient(145deg, #f9e6da, #eec7ae); --c-a: #95421a;
+      --g-o: linear-gradient(145deg, #dfeedb, #b9d7b2); --c-o: #2b613f;
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0c1514;
+      --bg-soft: #111e1c;
+      --card: #152220;
+      --card-glass: rgba(21, 34, 32, 0.86);
+      --tx: #e7f0ea;
+      --mu: #95aba3;
+      --ac: #8fd0a9;
+      --ac-hover: #a2dbba;
+      --ac-glow: rgba(143, 208, 169, 0.24);
+      --acx: #091912;
+      --gold: #ebc87e;
+      --gold-bg: rgba(235, 200, 126, 0.14);
+      --bd: #243739;
+      --bad: #e68c72;
+      --bad-bg: rgba(230, 140, 114, 0.14);
+      --good: #6fd89f;
+      --good-bg: rgba(111, 216, 159, 0.14);
+      --warn: #ebc87e;
+      --warn-bg: rgba(235, 200, 126, 0.14);
+      --shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+      --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.42);
+
+      /* تدرجات التصنيفات في الوضع الداكن */
+      --g-s: linear-gradient(145deg, #0f393f, #1e6c6a); --c-s: #82e8e0;
+      --g-h: linear-gradient(145deg, #3b2316, #7a4c2a); --c-h: #f4c682;
+      --g-p: linear-gradient(145deg, #211e47, #4c407d); --c-p: #cabcf9;
+      --g-l: linear-gradient(145deg, #3f1928, #732f49); --c-l: #f8abc3;
+      --g-g: linear-gradient(145deg, #112d42, #21577a); --c-g: #87d2f8;
+      --g-m: linear-gradient(145deg, #123727, #226949); --c-m: #88eab3;
+      --g-t: linear-gradient(145deg, #172544, #2b4a84); --c-t: #9ac2ff;
+      --g-a: linear-gradient(145deg, #3e2318, #75432e); --c-a: #f8b895;
+      --g-o: linear-gradient(145deg, #1d3321, #406648); --c-o: #a6e3bc;
+    }
+
+    /* =========================================================================
+       2. القواعد الأساسية والخطوط والتجاوب
+       ========================================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg);
+      color: var(--tx);
+      font-family: "Noto Naskh Arabic", Tahoma, serif;
+      font-size: 16px;
+      line-height: 1.72;
+      background-image:
+        radial-gradient(920px 500px at 88% -8%, var(--ac-glow), transparent),
+        radial-gradient(700px 460px at 5% 35%, rgba(127, 196, 212, 0.08), transparent),
+        radial-gradient(560px 420px at 50% 98%, rgba(235, 200, 126, 0.06), transparent);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      padding-bottom: 84px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1, h2, h3, h4, button, .kufi, select, .chip, .tag, .pill {
+      font-family: "Reem Kufi", Tahoma, sans-serif;
+    }
+
+    button {
+      font-family: "Reem Kufi", Tahoma, sans-serif;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    input, textarea, select {
+      font-family: inherit;
+      color: var(--tx);
+      background: var(--bg);
+      border: 1px solid var(--bd);
+      border-radius: 14px;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--ac);
+      box-shadow: 0 0 0 3px var(--ac-glow);
+    }
+
+    /* ألوان التصنيفات */
+    .cat-s { --cat-bg: var(--g-s); --cat-ac: var(--c-s); }
+    .cat-h { --cat-bg: var(--g-h); --cat-ac: var(--c-h); }
+    .cat-p { --cat-bg: var(--g-p); --cat-ac: var(--c-p); }
+    .cat-l { --cat-bg: var(--g-l); --cat-ac: var(--c-l); }
+    .cat-g { --cat-bg: var(--g-g); --cat-ac: var(--c-g); }
+    .cat-m { --cat-bg: var(--g-m); --cat-ac: var(--c-m); }
+    .cat-t { --cat-bg: var(--g-t); --cat-ac: var(--c-t); }
+    .cat-a { --cat-bg: var(--g-a); --cat-ac: var(--c-a); }
+    .cat-o { --cat-bg: var(--g-o); --cat-ac: var(--c-o); }
+
+    /* خلفية التلال المتحركة بنعومة */
+    .hills-wrap {
+      position: fixed;
+      inset: auto 0 0 0;
+      width: 100%;
+      height: 165px;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      color: var(--ac);
+    }
+
+    .hills-svg {
+      width: 112%;
+      height: 100%;
+      margin-right: -6%;
+      display: block;
+    }
+
+    .hill-wave-1 {
+      animation: hillDrift 16s ease-in-out infinite alternate;
+    }
+
+    .hill-wave-2 {
+      animation: hillDrift 22s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes hillDrift {
+      from { transform: translateX(-18px); }
+      to { transform: translateX(18px); }
+    }
+
+    /* الحاوية الرئيسية */
+    .app-shell {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 18px 16px 24px;
+    }
+
+    @media (min-width: 640px) {
+      .app-shell { padding: 24px 22px 30px; }
+    }
+
+    /* =========================================================================
+       3. الشريط العلوي (Top HUD) والبطاقات الأساسية
+       ========================================================================= */
+    .hud-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--ac);
+      color: var(--acx);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      box-shadow: 0 8px 20px var(--ac-glow);
+      flex-shrink: 0;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.8vw, 1.85rem);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      margin: 2px 0 0;
+      font-size: 0.83rem;
+      color: var(--mu);
+    }
+
+    .hud-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hud-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      min-height: 40px;
+      border-radius: 999px;
+      background: var(--card-glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--bd);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: transform 0.16s ease, border-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .hud-pill:hover { border-color: var(--ac); }
+    .hud-pill:active { transform: scale(0.96); }
+
+    .sheet-group {
+      display: inline-flex;
+      align-items: stretch;
+      border-radius: 999px;
+      background: var(--card-glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--bd);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .sheet-group.is-ok { border-color: var(--ac); }
+    .sheet-group.is-warn { border-color: var(--warn); }
+    .sheet-group.is-err { border-color: var(--bad); }
+
+    .sheet-status-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      min-height: 40px;
+      border: 0;
+      background: transparent;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .sheet-refresh-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      min-height: 40px;
+      min-width: 40px;
+      border: 0;
+      border-right: 1px solid var(--bd);
+      background: transparent;
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
+    }
+
+    .sheet-refresh-btn:hover { background: var(--ac-glow); }
+
+    .spin {
+      display: inline-block;
+      animation: spin360 1s linear infinite;
+    }
+
+    @keyframes spin360 {
+      to { transform: rotate(360deg); }
+    }
+
+    /* البطاقات السطحية والزجاجية */
+    .surface {
+      background: var(--card-glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--bd);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .themed-card {
+      background: var(--cat-bg, var(--card));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      color: var(--tx);
+    }
+
+    /* بانر الإشراقة المعرفية */
+    .spotlight {
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .spotlight-body {
+      flex: 1 1 320px;
+      min-width: 0;
+    }
+
+    .spotlight-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .spotlight-text {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.72;
+    }
+
+    .spotlight-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* =========================================================================
+       4. شريط التنقل الرئيسي (6 تبويبات)
+       ========================================================================= */
+    .main-nav {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .main-nav {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+      }
+    }
+
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 8px;
+      min-height: 46px;
+      border-radius: 16px;
+      border: 1px solid var(--bd);
+      background: var(--card-glass);
+      color: var(--tx);
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-btn:hover { border-color: var(--ac); }
+    .nav-btn:active { transform: scale(0.97); }
+
+    .nav-btn.active {
+      background: var(--ac);
+      color: var(--acx);
+      border-color: var(--ac);
+      box-shadow: 0 6px 18px var(--ac-glow);
+    }
+
+    .nav-btn span.lbl {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* تنبيه بطاقات اليوم */
+    .daily-nudge {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--ac);
+      background: var(--card-glass);
+      cursor: pointer;
+      transition: transform 0.16s ease;
+    }
+
+    .daily-nudge:hover { transform: translateY(-1px); }
+
+    /* =========================================================================
+       5. الأزرار والشارات والفلاتر
+       ========================================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 11px 18px;
+      min-height: 44px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: transform 0.14s ease, filter 0.18s ease, background 0.18s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover:not(:disabled) { filter: brightness(1.06); }
+    .btn:active:not(:disabled) { transform: scale(0.97); }
+
+    .btn-primary {
+      background: var(--ac);
+      color: var(--acx);
+      box-shadow: 0 6px 18px var(--ac-glow);
+    }
+
+    .btn-ghost {
+      background: var(--bg);
+      color: var(--tx);
+      border-color: var(--bd);
+    }
+
+    .btn-outline-ac {
+      background: transparent;
+      color: var(--ac);
+      border-color: var(--ac);
+    }
+
+    .btn-bad {
+      background: var(--bad);
+      color: #ffffff;
+    }
+
+    .btn-gold {
+      background: var(--gold-bg);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn-sm {
+      padding: 7px 12px;
+      min-height: 36px;
+      font-size: 0.82rem;
+      border-radius: 12px;
+    }
+
+    .btn-block { width: 100%; }
+
+    .badge-sheet {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--ac);
+      color: var(--acx);
+      font-size: 0.72rem;
+      font-weight: 700;
+      box-shadow: 0 3px 10px var(--ac-glow);
+    }
+
+    .tag-cat {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--cat-ac, var(--ac));
+      color: var(--cat-ac, var(--ac));
+      background: rgba(0, 0, 0, 0.14);
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+
+    :root[data-theme="light"] .tag-cat {
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .tag-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--gold-bg);
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+
+    /* =========================================================================
+       6. الشبكات والموسوعة
+       ========================================================================= */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    .stat-box {
+      padding: 13px 10px;
+      text-align: center;
+      border-radius: 18px;
+      transition: transform 0.16s ease, border-color 0.2s ease;
+    }
+
+    .stat-box.clickable { cursor: pointer; }
+    .stat-box.clickable:hover { transform: translateY(-2px); border-color: var(--ac); }
+
+    .stat-box b {
+      display: block;
+      font-family: "Reem Kufi", sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.25;
+    }
+
+    .stat-box span {
+      font-size: 0.78rem;
+      color: var(--mu);
+    }
+
+    .filter-panel {
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1 1 260px;
+    }
+
+    .search-box input {
+      padding-right: 40px;
+      padding-left: 36px;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .search-clear {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 0;
+      background: transparent;
+      color: var(--mu);
+      font-size: 0.9rem;
+      padding: 4px 6px;
+    }
+
+    .chips-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .chips-row::-webkit-scrollbar { display: none; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      padding: 7px 14px;
+      min-height: 38px;
+      border-radius: 999px;
+      border: 1px solid var(--bd);
+      background: var(--bg);
+      color: var(--tx);
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: all 0.18s ease;
+    }
+
+    .chip:hover { border-color: var(--ac); }
+
+    .chip.on {
+      background: var(--ac);
+      color: var(--acx);
+      border-color: var(--ac);
+      box-shadow: 0 4px 14px var(--ac-glow);
+    }
+
+    .chip.sheet-chip {
+      border-color: var(--ac);
+    }
+
+    .chip.fav-chip.on {
+      background: var(--gold);
+      color: #151208;
+      border-color: var(--gold);
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 680px) {
+      .facts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 1024px) {
+      .facts-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    .fact-card {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .fact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .fact-card.from-sheet {
+      border: 2px solid var(--ac);
+    }
+
+    .fact-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .fact-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .fact-tools {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(0, 0, 0, 0.14);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      transition: background 0.18s ease, transform 0.14s ease;
+    }
+
+    :root[data-theme="light"] .icon-btn {
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .icon-btn:hover { background: rgba(0, 0, 0, 0.28); }
+    .icon-btn:active { transform: scale(0.92); }
+
+    .fact-q {
+      margin: 0 0 8px;
+      font-size: 1.06rem;
+      font-weight: 700;
+      line-height: 1.48;
+    }
+
+    .fact-a {
+      margin: 0;
+      font-size: 0.93rem;
+      opacity: 0.92;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .fact-foot {
+      margin-top: 14px;
+      padding-top: 11px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    :root[data-theme="light"] .fact-foot {
+      border-top-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .mini-pill {
+      border: 0;
+      border-radius: 10px;
+      padding: 6px 11px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--tx);
+      transition: opacity 0.18s ease;
+    }
+
+    :root[data-theme="light"] .mini-pill {
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    /* =========================================================================
+       7. بطاقات اليوم ثلاثية الأبعاد (3D Flip Cards)
+       ========================================================================= */
+    .narrow-wrap {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .medium-wrap {
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--bd);
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--ac);
+      transition: width 0.4s ease;
+    }
+
+    .flip-wrap {
+      perspective: 1200px;
+      cursor: pointer;
+      margin-bottom: 18px;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      min-height: 320px;
+      transform-style: preserve-3d;
+      transition: transform 0.65s cubic-bezier(0.34, 1.45, 0.64, 1);
+    }
+
+    .flip-wrap.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 26px;
+      padding: 28px 24px;
+      background: var(--cat-bg, var(--card));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+    }
+
+    .float-icon {
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      animation: floatSoft 3.6s ease-in-out infinite;
+    }
+
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stack-md {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .stack-md { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    /* =========================================================================
+       8. شارات الإنجاز + تحدي الثقافة + ويكيبيديا + حقيبتي
+       ========================================================================= */
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (min-width: 600px) {
+      .badges-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    .badge-item {
+      padding: 13px 8px;
+      border-radius: 18px;
+      border: 1px dashed var(--bd);
+      background: var(--bg);
+      text-align: center;
+      opacity: 0.48;
+      filter: grayscale(1);
+      transition: all 0.25s ease;
+    }
+
+    .badge-item.unlocked {
+      opacity: 1;
+      filter: none;
+      border-style: solid;
+      border-color: var(--ac);
+      animation: badgeGlow 2.4s infinite alternate;
+    }
+
+    @keyframes badgeGlow {
+      from { box-shadow: 0 0 0 rgba(143, 208, 169, 0); }
+      to { box-shadow: 0 0 18px var(--ac-glow); }
+    }
+
+    .quiz-opt {
+      width: 100%;
+      text-align: right;
+      padding: 15px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--bd);
+      background: var(--card);
+      color: var(--tx);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-family: "Noto Naskh Arabic", serif;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      transition: border-color 0.18s ease, transform 0.14s ease, background 0.18s ease;
+    }
+
+    .quiz-opt:hover:not(:disabled) {
+      border-color: var(--ac);
+      transform: translateX(-2px);
+    }
+
+    .quiz-opt.correct {
+      background: var(--good);
+      border-color: var(--good);
+      color: #ffffff;
+    }
+
+    .quiz-opt.wrong {
+      background: var(--bad);
+      border-color: var(--bad);
+      color: #ffffff;
+    }
+
+    .quiz-opt.dimmed { opacity: 0.52; }
+
+    .opt-letter {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.16);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Reem Kufi", sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .wiki-card-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 640px) {
+      .wiki-card-flex { flex-direction: row; }
+    }
+
+    .wiki-thumb {
+      width: 100%;
+      max-height: 240px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid var(--bd);
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 640px) {
+      .wiki-thumb {
+        width: 190px;
+        height: 190px;
+      }
+    }
+
+    .srs-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bd);
+    }
+
+    .srs-list-item:last-child { border-bottom: 0; }
+
+    /* =========================================================================
+       9. النوافذ المنبثقة (Modals) والإشعارات (Toast)
+       ========================================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow-y: auto;
+      animation: fadePop 0.22s ease-out;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 620px;
+      max-height: 92vh;
+      overflow-y: auto;
+      border-radius: 26px;
+      padding: 24px 22px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-close {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--bd);
+      background: var(--bg);
+      color: var(--tx);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translate(-50%, 16px);
+      z-index: 95;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: var(--ac);
+      color: var(--acx);
+      font-family: "Reem Kufi", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      pointer-events: none;
+      max-width: 92vw;
+      text-align: center;
+      transition: opacity 0.26s ease, transform 0.26s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .anim-pop {
+      animation: fadePop 0.28s ease-out;
+    }
+
+    @keyframes fadePop {
+      from { opacity: 0; transform: translateY(6px) scale(0.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .muted { color: var(--mu); }
+    .text-ac { color: var(--ac); }
+    .text-gold { color: var(--gold); }
+    .text-good { color: var(--good); }
+    .text-bad { color: var(--bad); }
+    .text-center { text-align: center; }
+
+    .alert-box {
+      padding: 12px 15px;
+      border-radius: 16px;
+      font-size: 0.88rem;
+      margin-bottom: 14px;
+      border: 1px solid var(--bd);
+    }
+
+    .alert-err {
+      background: var(--bad-bg);
+      border-color: var(--bad);
+      color: var(--bad);
+    }
+
+    .alert-ok {
+      background: var(--good-bg);
+      border-color: var(--good);
+      color: var(--good);
+    }
+
+    .alert-warn {
+      background: var(--warn-bg);
+      border-color: var(--warn);
+      color: var(--warn);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flip-inner, .float-icon, .badge-item.unlocked, .hill-wave-1, .hill-wave-2, .spin, .anim-pop {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- خلفية التلال المتحركة SVG -->
+  <div class="hills-wrap" aria-hidden="true">
+    <svg class="hills-svg" viewBox="0 0 1440 190" preserveAspectRatio="none">
+      <path class="hill-wave-1" d="M0 112C220 48 430 156 710 92S1110 38 1440 94V190H0Z" fill="currentColor" opacity="0.07"/>
+      <path class="hill-wave-2" d="M0 142C260 98 510 174 810 122S1190 92 1440 132V190H0Z" fill="currentColor" opacity="0.12"/>
+    </svg>
+  </div>
+
+  <!-- إشعار منبثق (Toast) -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- حاوية النوافذ المنبثقة -->
+  <div id="modal-root"></div>
+
+  <!-- الهيكل الرئيسي للتطبيق -->
+  <main class="app-shell">
+
+    <!-- الشريط العلوي (Top HUD) -->
+    <header>
+      <div class="hud-bar">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true">🪔</div>
+          <div>
+            <h1>مِشْكاة المعرفة</h1>
+            <p class="brand-sub">الموسوعة الثقافية الشاملة · <b id="hdr-total" class="text-ac">255</b> معلومة ومزامنة حيّة</p>
+          </div>
+        </div>
+
+        <div class="hud-controls">
+          <!-- سلسلة الأيام -->
+          <div class="hud-pill" title="سلسلة الأيام المتتالية">
+            <span>🔥</span>
+            <b id="hud-streak" class="text-ac">0</b>
+          </div>
+
+          <!-- نقاط الخبرة -->
+          <div class="hud-pill" title="نقاط الخبرة الثقافية">
+            <span>⭐</span>
+            <b id="hud-xp" class="text-gold">0</b>
+            <span class="muted" style="font-size:0.75rem;">XP</span>
+          </div>
+
+          <!-- شارة حالة Google Sheets المباشرة + زر تحديث فوري -->
+          <div id="sheet-hud-group" class="sheet-group">
+            <button onclick="openSheetsModal()" id="sheet-status-btn" class="sheet-status-btn" title="إدارة ومعلومات جدول Google Sheets المتصل">
+              ⏳ جاري المزامنة...
+            </button>
+            <button onclick="syncGoogleSheet({ manual: true })" id="sheet-refresh-btn" class="sheet-refresh-btn" title="تحديث فوري من Google Sheets" aria-label="تحديث Google Sheets">
+              🔄
+            </button>
+          </div>
+
+          <!-- زر تبديل السمة -->
+          <button onclick="toggleTheme()" id="theme-btn" class="hud-pill" title="تبديل الوضع الليلي والنهاري">
+            ☀️ فاتح
+          </button>
+        </div>
+      </div>
+
+      <!-- بانر الإشراقة المعرفية -->
+      <div class="surface spotlight">
+        <div class="spotlight-body">
+          <div class="spotlight-meta">
+            <span class="tag-gold">💡 إشراقة معرفية</span>
+            <span id="spot-cat" class="kufi muted" style="font-size:0.8rem;"></span>
+            <span id="spot-sheet-badge" class="badge-sheet" style="display:none;">📊 من Google Sheets</span>
+          </div>
+          <p id="spot-text" class="spotlight-text"></p>
+        </div>
+        <div class="spotlight-actions">
+          <button onclick="rotateSpotlight()" class="btn btn-ghost btn-sm">🔄 أخرى</button>
+          <button onclick="openRandomFactModal()" class="btn btn-primary btn-sm">🎲 معلومة عشوائية</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- شريط التنقل (6 تبويبات رئيسية) -->
+    <nav id="main-nav" class="main-nav" aria-label="التنقل الرئيسي"></nav>
+
+    <!-- تنبيه لطيف لبطاقات اليوم -->
+    <div id="daily-nudge-root"></div>
+
+    <!-- منطقة عرض التبويب النشط -->
+    <section id="app-view" class="anim-pop"></section>
+
+  </main>
+
+  <script>
+    // =========================================================================
+    // 1. الإعدادات المسبقة لجدول Google Sheets الخاص بالمستخدم
+    // =========================================================================
+    const DEFAULT_SHEET_ID = "1wuZFZ6QBI2dLwVP3GksSvBGovK9ykP6fLbkp1dml7zA";
+    const DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1wuZFZ6QBI2dLwVP3GksSvBGovK9ykP6fLbkp1dml7zA/edit?usp=drivesdk";
+
+    // =========================================================================
+    // 2. تعريف التصنيفات المعرفية (8 تصنيفات رئيسية + ثقافة عامة)
+    // =========================================================================
+    const CATS = {
+      s: { name: "علوم وفضاء",       short: "علوم",      icon: "🔬", cls: "cat-s" },
+      h: { name: "تاريخ وحضارات",    short: "تاريخ",     icon: "🏛️", cls: "cat-h" },
+      p: { name: "فلسفة وفكر",       short: "فلسفة",     icon: "🦉", cls: "cat-p" },
+      l: { name: "أدب ولغة",         short: "أدب ولغة",  icon: "📖", cls: "cat-l" },
+      g: { name: "جغرافيا وعجائب",   short: "جغرافيا",   icon: "🌍", cls: "cat-g" },
+      m: { name: "طب وعلم نفس",      short: "طب ونفس",   icon: "🧠", cls: "cat-m" },
+      t: { name: "تكنولوجيا واختراعات", short: "تكنولوجيا", icon: "💻", cls: "cat-t" },
+      a: { name: "فنون وعمارة",      short: "فنون",      icon: "🎨", cls: "cat-a" },
+      o: { name: "ثقافة عامة",       short: "عامة",      icon: "✨", cls: "cat-o" }
+    };
+
+    const MAIN_CAT_KEYS = ["s", "h", "p", "l", "g", "m", "t", "a"];
+
+    // =========================================================================
+    // 3. الموسوعة المدمجة الثرية (255 معلومة ثقافية عربية موثّقة)
+    // =========================================================================
+    const BASE_FACTS = [
+      // ===================== [s] علوم وفضاء (45 معلومة) =====================
+      ["s", "كم تستغرق أشعة الشمس لتصل إلى الأرض؟", "تستغرق نحو 8 دقائق و20 ثانية لتقطع مسافة 150 مليون كيلومتر بسرعة الضوء، مما يعني أننا نرى الشمس كما كانت قبل 8 دقائق."],
+      ["s", "لماذا تبدو السماء زرقاء في النهار؟", "بسبب ظاهرة «تشتت رايلي»؛ إذ يشتّت الغلاف الجوي الضوء الأزرق الأقصر موجةً في كل الاتجاهات أكثر من بقية الألوان."],
+      ["s", "ما أكثر الغازات وفرة في الغلاف الجوي للأرض؟", "النيتروجين بنسبة تقارب 78%، يليه الأكسجين بنسبة 21%، وتشكل غازات مثل الأرغون وثاني أكسيد الكربون النسبة المتبقية."],
+      ["s", "كم قلباً للأخطبوط وكيف تعمل؟", "يمتلك الأخطبوط ثلاثة قلوب: قلبان يضخّان الدم إلى الخياشيم لامتصاص الأكسجين، وقلب ثالث يضخّه لبقية الجسم ويتوقف مؤقتاً أثناء السباحة."],
+      ["s", "ما أكبر كوكب في المجموعة الشمسية؟", "المشتري؛ وهو عملاق غازي يتسع حجمه لأكثر من 1,300 كوكب بحجم الأرض، وتفوق كتلته ضعف كتلة جميع الكواكب الأخرى مجتمعة."],
+      ["s", "لماذا يظهر القمر لنا بالوجه نفسه دائماً؟", "بسبب التقييد المدي؛ حيث يتساوى زمن دوران القمر حول نفسه مع زمن دورانه حول الأرض (نحو 27.3 يوماً)."],
+      ["s", "ما أصلب مادة طبيعية معروفة على الأرض؟", "الألماس؛ وهو شكل نقي من الكربون تترتب ذراته في شبكة بلورية رباعية بالغة التماسك تحت ضغط وحرارة هائلين."],
+      ["s", "كم عظمة في جسم الإنسان البالغ مقارنةً بالرضيع؟", "يمتلك البالغ 206 عظمات، بينما يولد الطفل بنحو 270 عظمة تلتحم تدريجياً مع النمو لتكوين هيكل عظمي متين."],
+      ["s", "ما الرمز الكيميائي للذهب ومن أين جاء؟", "رمزه Au، مشتق من الكلمة اللاتينية «Aurum» التي تعني الفجر المشرق، ويتميز بندرته ومقاومته للتآكل والصدأ."],
+      ["s", "ما هو الحمض النووي (DNA)؟", "جزيء حيوي يحمل التعليمات الوراثية الكاملة للكائن الحي، ويتخذ تركيبه شكل حلزون مزدوج يحفظ الشيفرة الجينية."],
+      ["s", "من وضع قوانين الحركة والجاذبية الكونية؟", "العالم الإنجليزي إسحاق نيوتن في كتابه «المبادئ الرياضية» عام 1687م، ليؤسس الفيزياء الكلاسيكية."],
+      ["s", "ما أسرع شيء في الكون؟", "الضوء في الفراغ بسرعة تقارب 299,792 كيلومتراً في الثانية، وهو الحد الأقصى للسرعة وفقاً للنظرية النسبية."],
+      ["s", "كيف تصنع النباتات غذاءها؟", "بالبناء الضوئي؛ إذ تمتص مادة الكلوروفيل طاقة الشمس لتحويل الماء وثاني أكسيد الكربون إلى سكر الجلوكوز وتطلق الأكسجين."],
+      ["s", "لماذا نرى البرق قبل أن نسمع الرعد؟", "لأن سرعة الضوء تفوق سرعة الصوت بنحو مليون مرة؛ فكل 3 ثوانٍ بينهما تعني أن العاصفة تبعد قرابة كيلومتر واحد."],
+      ["s", "ما أقرب نجم إلى الأرض بعد الشمس؟", "نجم «بروكسيما قنطورس» (قنطورس الأقرب)، وهو قزم أحمر يبعد عنا نحو 4.24 سنة ضوئية."],
+      ["s", "ما أكبر عضو في جسم الإنسان؟", "الجلد؛ يشكّل نحو 15% من وزن الجسم وتبلغ مساحته قرابة مترين مربعين، ويحمي الجسم وينظّم حرارته."],
+      ["s", "كم كوكباً في المجموعة الشمسية وماذا حدث لبلوتو؟", "ثمانية كواكب رسمية؛ وقد أُعيد تصنيف بلوتو كوكباً قزماً عام 2006م لأنه لا يُخلي مداره من الأجرام المجاورة."],
+      ["s", "ما الذي يسبب ظاهرتَي المدّ والجزر؟", "قوة جاذبية القمر التي تجذب مياه المحيطات نحوها، وبدرجة أقل جاذبية الشمس."],
+      ["s", "ما أسرع حيوان بري على وجه الأرض؟", "الفهد الصياد (الشيتا)؛ ينطلق من السكون إلى أكثر من 100 كم/ساعة خلال ثلاث ثوانٍ لمسافات قصيرة."],
+      ["s", "كم عدد أسنان الإنسان البالغ؟", "32 سناً دائماً (بما فيها أضراس العقل الأربعة)، مقابل 20 سناً لبنياً في مرحلة الطفولة."],
+      ["s", "ما أطول أجزاء الجهاز الهضمي في الإنسان؟", "الأمعاء الدقيقة؛ يبلغ طولها نحو 6 أمتار، وتتم فيها معظم عملية هضم الطعام وامتصاص العناصر الغذائية."],
+      ["s", "لماذا نشعر بالدوار بعد الدوران السريع؟", "لأن السائل داخل الأذن الداخلية يستمر في الحركة بفعل القصور الذاتي بعد توقفنا، فيرسل إشارات حركة خاطئة للدماغ."],
+      ["s", "ما درجة غليان الماء عند مستوى سطح البحر؟", "100 درجة مئوية عند الضغط الجوي القياسي، وتنخفض هذه الدرجة فوق قمم الجبال العالية لانخفاض الضغط."],
+      ["s", "ما أخف وأبسط عنصر في الجدول الدوري؟", "الهيدروجين (H)؛ تتكون ذرته من بروتون واحد وإلكترون واحد، وهو الوقود الأساسي للنجوم وأكثر العناصر وفرة في الكون."],
+      ["s", "ما أصل الكهرباء الساكنة؟", "تراكم غير متوازن للشحنات الكهربائية على سطح مادة نتيجة الاحتكاك، كما يحدث عند فرك بالون بالشعر."],
+      ["s", "ما الحمض القوي الموجود في المعدة؟", "حمض الهيدروكلوريك (HCl)؛ يساعد في تفكيك الطعام وقتل الجراثيم، وتحمي المعدة نفسها منه بغشاء مخاطي متجدد."],
+      ["s", "كم يستغرق ضوء القمر ليصل إلى الأرض؟", "نحو 1.3 ثانية فقط، لكون متوسط المسافة بين الأرض والقمر يقارب 384,400 كيلومتر."],
+      ["s", "ما الكواكب العملاقة الغازية والجليدية في مجموعتنا الشمسية؟", "أربعة كواكب خارجية: المشتري وزحل (غازيان)، وأورانوس ونبتون (جليديان غنيان بالماء والميثان)."],
+      ["s", "ما التركيب الكيميائي لملح الطعام؟", "كلوريد الصوديوم (NaCl)، وهو مركب أيوني يتكوّن من اتحاد عنصر الصوديوم مع غاز الكلور."],
+      ["s", "ما السبب الحقيقي لتعاقب الفصول الأربعة؟", "ميل محور دوران الأرض بزاوية 23.5 درجة أثناء دورانها حول الشمس، وليس قربها أو بُعدها عن الشمس."],
+      ["s", "كم عدد الكروموسومات في الخلية البشرية الطبيعية؟", "46 كروموسوماً مرتبة في 23 زوجاً، يرث الإنسان نصفها من الأم والنصف الآخر من الأب."],
+      ["s", "ما أبرد درجة حرارة ممكنة في الفيزياء؟", "الصفر المطلق، ويعادل −273.15 درجة مئوية (صفر كلفن)، حيث تبلغ الطاقة الحرارية للذرات أدنى حد نظري."],
+      ["s", "ما المجرة التي تقع فيها مجموعتنا الشمسية؟", "مجرة «درب التبانة»؛ وهي مجرة حلزونية ضلعية يقدّر قطرها بنحو 100 ألف سنة ضوئية وتضم مئات المليارات من النجوم."],
+      ["s", "ما أكبر حيوان عاش على الأرض على الإطلاق؟", "الحوت الأزرق؛ قد يصل طوله إلى 30 متراً ووزنه إلى 180 طناً، ويزن قلبه وحده قرابة سيارة صغيرة."],
+      ["s", "ما العنصران الأكثر وفرة في القشرة الأرضية؟", "الأكسجين (نحو 46%) يليه السيليكون (نحو 28%)، ويشكّلان معاً معادن السيليكات التي تبني معظم صخور الأرض."],
+      ["s", "ما أصغر وحدة في العنصر تحتفظ بخصائصه الكيميائية؟", "الذرة؛ وتتكون من نواة بها بروتونات ونيوترونات وتدور حولها سحابة من الإلكترونات."],
+      ["s", "ما الذي يجعل الدم أحمر اللون؟", "بروتين الهيموغلوبين في كريات الدم الحمراء لاحتوائه على ذرات الحديد التي ترتبط بالأكسجين."],
+      ["s", "كم يبلغ عمر كوكب الأرض تقريباً؟", "نحو 4.54 مليار سنة، وفقاً للتأريخ الإشعاعي لأقدم النيازك والصخور الأرضية والقمرية."],
+      ["s", "ما هو الكوكب الأحمر؟", "المريخ؛ وسُمّي بذلك بسبب الانتشار الواسع لغبار أكسيد الحديد (الصدأ) على سطحه وفي غلافه الجوي الرقيق."],
+      ["s", "ما أقرب كوكب إلى الشمس؟", "عطارد؛ يُتم دورته حول الشمس في 88 يوماً أرضياً فقط، لكن الزهرة أشد منه حرارةً لغلافه الجوي الكثيف."],
+      ["s", "من اكتشف البنسلين وكيف غيّر الطب؟", "ألكسندر فليمنغ عام 1928م حين لاحظ أن فطراً يمنع نمو البكتيريا، ففتح عصر المضادات الحيوية وأنقذ مئات الملايين."],
+      ["s", "ما سبب ظاهرة الاحتباس الحراري؟", "تراكم غازات دفيئة مثل ثاني أكسيد الكربون والميثان في الغلاف الجوي مما يحبس جزءاً من حرارة الشمس."],
+      ["s", "من هو ألبرت أينشتاين وما أبرز إنجازاته؟", "عالم فيزياء صاغ النظريتين النسبيتين ومعادلة (E=mc²)، ونال جائزة نوبل عام 1921م عن تفسير التأثير الكهروضوئي."],
+      ["s", "لماذا يطفو الجليد فوق الماء السائل؟", "لأن جزيئات الماء عند التجمّد تنتظم في شبكة بلورية مفتوحة أقل كثافة من الماء السائل بنحو 9%، مما يحمي الحياة البحرية."],
+      ["s", "ما هي السنة الضوئية؟", "وحدة قياس للمسافة تساوي المسافة التي يقطعها الضوء خلال سنة كاملة، أي نحو 9.46 تريليون كيلومتر."],
+
+      // ===================== [h] تاريخ وحضارات (45 معلومة) =====================
+      ["h", "من هو الخوارزمي وما أثره في العلوم؟", "عالم رياضيات في بيت الحكمة ببغداد في القرن التاسع الميلادي؛ من اسمه جاءت كلمة «خوارزمية»، وكتابه «الجبر والمقابلة» أسس علم الجبر."],
+      ["h", "متى سقطت القسطنطينية وعلى يد من؟", "عام 1453م على يد السلطان العثماني محمد الفاتح وعمره 21 عاماً، لتنتهي بذلك الإمبراطورية البيزنطية."],
+      ["h", "ما هو حجر رشيد؟", "لوح بازلتي كُتب عليه نص بثلاث كتابات (الهيروغليفية والديموطيقية واليونانية) ومكّن شامبليون من فك رموز الهيروغليفية عام 1822م."],
+      ["h", "أين نشأت أولى المدن الكبرى في التاريخ؟", "في بلاد سومر ببلاد الرافدين (جنوب العراق)، ومن أقدمها مدينة أوروك نحو 4000 ق.م حيث ابتُكرت الكتابة المسمارية والعجلة."],
+      ["h", "من بنى أهرامات الجيزة؟", "ملوك الأسرة الرابعة في الدولة المصرية القديمة (خوفو وخفرع ومنكاورع) قبل نحو 4,500 سنة."],
+      ["h", "ما هو بيت الحكمة في بغداد؟", "أعظم مكتبة ومركز للترجمة والبحث العلمي في العصر العباسي، ازدهر في عهد هارون الرشيد والمأمون وجمع علماء الحضارات."],
+      ["h", "من هو الحسن بن الهيثم؟", "عالم بصريات ورياضيات (965–1040م) يُعد رائد المنهج التجريبي الحديث، وأثبت في كتابه «المناظر» أن الرؤية تحدث بانعكاس الضوء إلى العين."],
+      ["h", "متى وأين بدأت الثورة الصناعية؟", "في بريطانيا خلال القرن الثامن عشر مع تطوير الآلة البخارية وانتشار المصانع والسكك الحديدية."],
+      ["h", "متى كانت الحرب العالمية الأولى؟", "بين عامي 1914 و1918م، وأدت إلى سقوط أربع إمبراطوريات كبرى وتغيير خريطة العالم."],
+      ["h", "من بنى مدينة بغداد ومتى؟", "الخليفة العباسي أبو جعفر المنصور عام 762م بتصميم دائري فريد وسماها «مدينة السلام»."],
+      ["h", "من هو الرحالة ابن بطوطة؟", "رحالة مغربي من طنجة (1304–1369م) قطع أكثر من 120 ألف كيلومتر عبر آسيا وأفريقيا وأوروبا خلال 29 عاماً."],
+      ["h", "ما هي مكتبة الإسكندرية القديمة؟", "من أعظم مكتبات العالم القديم ومراكز أبحاثه، أُسست في عهد البطالمة بمصر في القرن الثالث قبل الميلاد."],
+      ["h", "متى وصل كولومبوس إلى الأمريكتين؟", "عام 1492م في رحلته الغربية للبحث عن طريق بحري إلى الهند، مما فتح عصر الاستكشافات الأوروبية."],
+      ["h", "من هو ابن خلدون وبماذا اشتهر؟", "مؤرخ ومفكر عربي (1332–1406م) يُعد مؤسس علم الاجتماع الحديث من خلال كتابه الشهير «المقدمة» وعلم العمران البشري."],
+      ["h", "ما الحضارة التي بنت مدينة البتراء؟", "الأنباط العرب في جنوب الأردن، الذين نحتوا واجهاتها المهيبة في الصخر الوردي وأبدعوا في هندسة المياه."],
+      ["h", "متى فُتحت الأندلس ومن قاد الحملة؟", "عام 711م بقيادة طارق بن زياد ثم موسى بن نصير، لتبدأ حقبة حضارية امتدت قرابة ثمانية قرون."],
+      ["h", "ما الإمبراطورية التي أسسها جنكيز خان؟", "الإمبراطورية المغولية في القرن الثالث عشر، وأصبحت أكبر إمبراطورية برية متصلة في تاريخ البشرية."],
+      ["h", "من أول بعثة طافت حول الأرض بسفينة؟", "بعثة ماجلان (1519–1522م) التي أثبتت كروية الأرض عملياً، وأكملها إلكانو بعد مقتل ماجلان في الفلبين."],
+      ["h", "متى بدأت الحروب الصليبية وكم استمرت؟", "نحو عام 1096م واستمرت حملاتها قرابة قرنين حتى تحرير عكا عام 1291م."],
+      ["h", "من هي الملكة زنوبيا؟", "ملكة تدمر في بادية الشام بالقرن الثالث الميلادي، تحدّت الإمبراطورية الرومانية ووسّعت مملكتها لتشمل الشام ومصر."],
+      ["h", "ما هي جامعة القرويين وأين تقع؟", "أقدم جامعة مستمرة في العالم؛ أسّستها فاطمة الفهرية في مدينة فاس المغربية عام 859م."],
+      ["h", "من هو صلاح الدين الأيوبي؟", "قائد ومؤسس الدولة الأيوبية؛ وحّد مصر والشام وحرّر القدس عام 1187م بعد انتصاره في معركة حطين."],
+      ["h", "ما هو سور الصين العظيم؟", "سلسلة تحصينات وأبراج دفاعية بُنيت عبر عدة سلالات صينية على مدار قرون لحماية الحدود الشمالية وتنظيم التجارة."],
+      ["h", "متى ظهرت المطبعة الحديثة في أوروبا؟", "نحو عام 1450م على يد يوهان غوتنبرغ بالحروف المعدنية المتحركة، فأحدثت ثورة في نشر الكتب والمعرفة."],
+      ["h", "من هو هيرودوت؟", "مؤرخ يوناني من القرن الخامس قبل الميلاد يُلقّب بـ«أبي التاريخ» لتدوينه المنهجي لأحداث الحروب اليونانية الفارسية."],
+      ["h", "من اخترع الأبجدية الصوتية الأولى الشهيرة؟", "الفينيقيون على سواحل الشام، ومن أبجديتهم المكونة من 22 حرفاً تفرعت الأبجديات اليونانية واللاتينية والعربية."],
+      ["h", "متى سقطت الدولة الأموية في المشرق؟", "عام 750م لتقوم بعدها الدولة العباسية، بينما أسس عبد الرحمن الداخل الإمارة الأموية في الأندلس."],
+      ["h", "من هو ليوناردو دا فنشي؟", "فنان وعالم ومخترع إيطالي من عصر النهضة، رسم الموناليزا وصمّم مخططات لطائرات وغواصات سبقت عصره."],
+      ["h", "من بنى مدينة ماتشو بيتشو؟", "حضارة الإنكا في جبال الأنديز ببيرو في القرن الخامس عشر بحجارة متعشّقة بدقة مذهلة دون ملاط."],
+      ["h", "متى اندلعت الحرب العالمية الثانية ومتى انتهت؟", "اندلعت عام 1939م وانتهت عام 1945م، وأسفرت عن تأسيس الأمم المتحدة وبداية عصر الحرب الباردة."],
+      ["h", "ما أصل الأرقام المستخدمة عالمياً اليوم؟", "نشأت أصولها في الهند وطوّرها العلماء العرب كالخوارزمي مع مفهوم الصفر، وانتقلت عبر الأندلس إلى أوروبا."],
+      ["h", "من هو الرحالة ابن جبير؟", "أديب ورحالة أندلسي (1145–1217م) دوّن رحلته الشهيرة إلى المشرق والحجاز ومصر والشام وصقلية."],
+      ["h", "ما هي الثورة الفرنسية ومتى اندلعت؟", "ثورة عام 1789م أنهت الحكم الملكي المطلق ورفعت شعار «الحرية والمساواة والإخاء» وأصدرت إعلان حقوق الإنسان."],
+      ["h", "ما الاسم الحديث للقسطنطينية؟", "إسطنبول؛ وهي المدينة الكبرى الوحيدة الممتدة على قارتين (آسيا وأوروبا) عبر مضيق البوسفور."],
+      ["h", "من هو الإسكندر الأكبر؟", "ملك مقدوني (356–323 ق.م) تتلمذ على يد أرسطو وأسس إمبراطورية شاسعة امتدت من اليونان حتى حدود الهند."],
+      ["h", "من هو ماركو بولو؟", "تاجر ورحالة من البندقية سافر عبر طريق الحرير إلى الصين في القرن الثالث عشر ودوّن مشاهداته في كتاب ألهم أوروبا."],
+      ["h", "من بنى قصر الحمراء في غرناطة؟", "ملوك بني نصر (النصريون) في القرنين الثالث عشر والرابع عشر، ويُعد درّة العمارة الإسلامية الأندلسية."],
+      ["h", "من هو الإمام الشافعي وما إنجازه العلمي؟", "فقيه عربي (767–820م) وأول من دوّن علم «أصول الفقه» بصورة منهجية متكاملة في كتابه «الرسالة»."],
+      ["h", "متى انتهت الخلافة العثمانية رسمياً؟", "عام 1924م مع قيام الجمهورية التركية الحديثة بعد أكثر من ستة قرون من الحكم العثماني."],
+      ["h", "ما المقصود بالعصر الذهبي الإسلامي؟", "حقبة ازدهار علمي وثقافي امتدت تقريباً من القرن الثامن إلى الثالث عشر وشهدت طفرات في الطب والرياضيات والفلك."],
+      ["h", "من هو أبو بكر الرازي؟", "طبيب وكيميائي (865–925م) ألّف «الحاوي في الطب» وكان أول من فرّق سريرياً بين الجدري والحصبة."],
+      ["h", "متى أعلنت المستعمرات الأمريكية استقلالها؟", "في 4 يوليو 1776م بصدور إعلان الاستقلال عن التاج البريطاني لتنشأ الولايات المتحدة الأمريكية."],
+      ["h", "ما مكانة قرطبة في عهد الأمويين؟", "أصبحت في القرن العاشر أكبر وأرقى حواضر أوروبا بشوارعها المضاءة ومكتبتها التي ضمّت مئات الآلاف من المجلدات."],
+      ["h", "من هو الجغرافي الشريف الإدريسي؟", "جغرافي عربي (1100–1165م) رسم لملك صقلية أدق خريطة للعالم في العصور الوسطى ودوّن «نزهة المشتاق»."],
+      ["h", "ما أهمية طريق الحرير تاريخياً؟", "شبكة تجارة برية وبحرية ربطت الصين بالشرق الأوسط وأوروبا، ونقلت السلع والورق والعلوم والأفكار بين الحضارات."],
+
+      // ===================== [p] فلسفة وفكر (40 معلومة) =====================
+      ["p", "ما فكرة سقراط الأشهر عن المعرفة؟", "أن الحكمة تبدأ بإدراك حدود ما نعرف، ويُنسب إليه القول الشهير: «أعرف شيئاً واحداً وهو أنني لا أعرف شيئاً»."],
+      ["p", "ماذا قصد ديكارت بـ «أنا أفكر إذن أنا موجود»؟", "أن الشك نفسه فعل تفكير، وهو الدليل اليقيني القاطع على وجود ذاتٍ تفكر لا يمكن الشك في وجودها."],
+      ["p", "ما رمز «كهف أفلاطون»؟", "تمثيل لأناس يظنون الظلال على الجدار حقيقةً، ويرمز لرحلة العقل من أسر الجهل والوهم إلى نور المعرفة."],
+      ["p", "من هو ابن رشد وما أبرز أطروحته؟", "فيلسوف وقاضٍ أندلسي (1126–1198م) شرح أرسطو ودافع في «فصل المقال» عن العقل والتوافق التام بينه وبين الشريعة."],
+      ["p", "من تلميذ سقراط ومعلم أرسطو؟", "أفلاطون؛ مؤسس «الأكاديمية» في أثينا وصاحب نظرية «عالم المُثُل» وكتاب «الجمهورية»."],
+      ["p", "ما المذهب «الإمبريقي» (التجريبي) في الفلسفة؟", "مذهب يرى أن الحواس والخبرة هما المصدر الأساسي للمعرفة، ومن أبرز أعلامه جون لوك وديفيد هيوم."],
+      ["p", "ما «الأمر المطلق» عند إيمانويل كانط؟", "مبدأ أخلاقي ينص على: افعل فقط وفق القاعدة التي تريد أن تصبح قانوناً عاماً للجميع، معاملةً للإنسان كغاية لا كوسيلة."],
+      ["p", "ما هي «الأخلاق النفعية»؟", "مذهب أخلاقي يرى أن الفعل الصحيح هو الذي يحقق أكبر سعادة ومنفعة لأكبر عدد من الناس، ومن رواده بنثام وميل."],
+      ["p", "ماذا تعني الفلسفة «الوجودية»؟", "فلسفة ترى أن الإنسان حر ومسؤول عن صناعة معنى لحياته عبر اختياراته، ومن أبرز أعلامها جان بول سارتر."],
+      ["p", "ماذا فعل الغزالي في «تهافت الفلاسفة»؟", "انتقد فيه آراء بعض الفلاسفة بأدوات المنطق نفسها، وروى رحلته من الشك إلى اليقين في «المنقذ من الضلال»."],
+      ["p", "ما المقصود بـ «السفسطة»؟", "حجاج لفظي خادع هدفه الإقناع والغلبة في الجدال لا الوصول إلى الحقيقة، وقد تصدّى لها سقراط وأفلاطون."],
+      ["p", "من هو ابن سينا وما مكانته؟", "طبيب وفيلسوف موسوعي (980–1037م) لُقّب بالشيخ الرئيس؛ ألّف «القانون في الطب» الذي دُرّس في أوروبا قروناً."],
+      ["p", "من هو أرسطو وبماذا لُقّب؟", "فيلسوف يوناني (384–322 ق.م) يُلقّب بـ«المعلم الأول»، أسس علم المنطق وكان معلماً للإسكندر الأكبر."],
+      ["p", "ما هو «المنطق» عند أرسطو؟", "أداة لتمييز الاستدلال الصحيح من الخاطئ، وأشهر صوره القياس: كل إنسان فانٍ، وسقراط إنسان، إذن سقراط فانٍ."],
+      ["p", "ما فكرة الفارابي عن «المدينة الفاضلة»؟", "مجتمع متعاون يحكمه رئيس حكيم، يتكامل أفراده لتحقيق السعادة والفضيلة كأعضاء الجسد الواحد."],
+      ["p", "كيف يعرّف أرسطو «الفضيلة»؟", "بأنها «الوسط الذهبي» بين رذيلتين؛ فالشجاعة وسط بين التهور والجبن، والكرم وسط بين التبذير والبخل."],
+      ["p", "ما «الشك المنهجي» عند ديكارت؟", "أسلوب عقلي يشك به الإنسان مؤقتاً في كل معرفة قابلة للريب حتى يصل إلى يقين صلب لا يتزعزع."],
+      ["p", "ما هو «الجدل السقراطي»؟", "أسلوب حوار يعتمد على الأسئلة المتسلسلة لكشف تناقض أفكار المحاور وقيادته لاكتشاف الحقيقة بنفسه."],
+      ["p", "ما نظرية «العقد الاجتماعي»؟", "فكرة أن الأفراد يتنازلون طوعاً عن جزء من حرياتهم للدولة مقابل الأمن والنظام والعدالة، وتناولها هوبز ولوك وروسو."],
+      ["p", "ما «الحتمية» في الفلسفة؟", "رأي يذهب إلى أن كل حدث له سبب سابق يحدده بالضرورة، مما يطرح تساؤلاً عميقاً حول حرية الإرادة."],
+      ["p", "من هو فريدريك نيتشه؟", "فيلسوف ألماني (1844–1900) اشتهر بنقد الأخلاق التقليدية وبمفاهيم «الإنسان الأعلى» و«إرادة القوة»."],
+      ["p", "ما معنى مقولة سارتر «الإنسان محكوم بالحرية»؟", "أن الإنسان لا يستطيع الهروب من الاختيار، فهو مسؤول بالكامل عن قراراته وما يصنعه من نفسه."],
+      ["p", "ما هي «النسبية الأخلاقية»؟", "موقف يرى أن معايير الصواب والخطأ ليست مطلقة بل تختلف باختلاف الثقافات والأزمنة والأفراد."],
+      ["p", "من هو إيمانويل كانط وما ثورته الفلسفية؟", "فيلسوف ألماني (1724–1804) وفّق بين العقلانية والتجريبية في «نقد العقل الخالص»، مؤكداً دور العقل في تنظيم التجربة."],
+      ["p", "من هو باروخ سبينوزا؟", "فيلسوف هولندي (1632–1677) تبنّى مذهب «وحدة الوجود» معتبراً أن الطبيعة والوجود جوهر واحد محكوم بنظام عقلي."],
+      ["p", "ما هي «العدمية»؟", "موقف فلسفي يرى أن الحياة والوجود يفتقران إلى معنى جوهري أو قيمة موضوعية مسبقة."],
+      ["p", "ما علم «الإبستمولوجيا»؟", "فرع الفلسفة الذي يدرس نظرية المعرفة: طبيعتها ومصادرها وحدودها ومعايير صدقها."],
+      ["p", "ما هي «الميتافيزيقا»؟", "فرع الفلسفة الذي يبحث في طبيعة الوجود والواقع والزمان والمكان والمبادئ الأولى لما وراء المحسوسات."],
+      ["p", "ما المقصود بـ «الحدس» عند هنري برجسون؟", "إدراك مباشر ومتعاطف مع الزمن وتدفق الحياة يرى برجسون أنه يتجاوز حدود التحليل العقلي المجزَّأ."],
+      ["p", "من هو ابن طفيل وما قصته الفلسفية الشهيرة؟", "فيلسوف أندلسي كتب «حي بن يقظان»، قصة طفل نشأ وحيداً في جزيرة واهتدى بعقله وتأمله إلى الحقائق الكبرى."],
+      ["p", "بماذا وصف جون لوك العقل البشري عند الولادة؟", "بأنه «صفحة بيضاء» خالية من الأفكار الفطرية، وتملؤها الخبرة والحواس تدريجياً بالتعلم."],
+      ["p", "ما الفرق بين «المثالية» و«المادية» في الفلسفة؟", "المثالية تعطي الأولوية للعقل والأفكار والوعي، بينما ترى المادية أن المادة والطاقة هما أساس كل ما هو موجود."],
+      ["p", "من هي حنة أرندت وما مفهوم «تفاهة الشر»؟", "فيلسوفة سياسية درست الشمولية، وبيّنت أن الفظائع الكبرى قد يرتكبها أناس عاديون يتوقفون عن التفكير النقدي."],
+      ["p", "ما هي «البراغماتية»؟", "مدرسة فلسفية تقيس صحة الفكرة بجدواها العملية ونتائجها الملموسة في الواقع."],
+      ["p", "ما جوهر المدرسة «الرواقية» (Stoicism)؟", "فلسفة تدعو لضبط الانفعالات والتحلي بالسكينة والتركيز فقط على ما نملك السيطرة عليه وقبول ما لا نستطيع تغييره."],
+      ["p", "من هو كونفوشيوس؟", "فيلسوف صيني (551–479 ق.م) ركّزت تعاليمه على الأخلاق وبناء العلاقات الاجتماعية المتناغمة واحترام الوالدين."],
+      ["p", "ما هي الفلسفة «الطاوية»؟", "فلسفة صينية تدعو إلى العيش ببساطة وتناغم عفوي مع الطبيعة وتجنّب التكلّف والصراع غير الضروري."],
+      ["p", "ما هي المدرسة «الأبيقورية»؟", "فلسفة يونانية ترى أن السعادة الحقيقية تكمن في الطمأنينة واللذة الهادئة وغياب الألم الجسدي والاضطراب النفسي."],
+      ["p", "من هو محيي الدين بن عربي؟", "متصوف وفيلسوف أندلسي (1165–1240م) لُقّب بالشيخ الأكبر واشتهر بكتابه «الفتوحات المكية»."],
+      ["p", "كيف تعمل «الجدلية» عند هيغل؟", "يرى أن الفكر والتاريخ يتطوران عبر صراع بين فكرة ونقيضها، ليُثمر الصراع عن تركيب جديد يرتقي بهما."],
+
+      // ===================== [l] أدب ولغة (25 معلومة) =====================
+      ["l", "ما هي «المعلقات» في الشعر العربي؟", "أشهر وأجود قصائد الشعر الجاهلي الطوال؛ من شعرائها امرؤ القيس وعنترة وزهير بن أبي سلمى وطرفة بن العبد."],
+      ["l", "من هو أبو الطيب المتنبي؟", "شاعر عربي عبقري (915–965م) امتاز شعره بالحكمة والفخر وجزالة اللفظ حتى صارت أبياته أمثالاً سائرة عبر العصور."],
+      ["l", "من هو الجاحظ وما أبرز مؤلفاته؟", "عميد النثر العباسي (776–868م)؛ جمع بين التحليل العلمي والفكاهة في «البيان والتبيين» و«الحيوان» و«البخلاء»."],
+      ["l", "ما هي حكايات «ألف ليلة وليلة»؟", "مجموعة قصصية شرقية خالدة ترويها شهرزاد للملك شهريار وتضم السندباد وعلاء الدين، وألهمت الأدب العالمي قروناً."],
+      ["l", "من هو الخليل بن أحمد الفراهيدي؟", "عالم لغوي عبقري من البصرة وضع «علم العروض» لضبط أوزان الشعر العربي، وألّف «كتاب العين» كأول معجم عربي."],
+      ["l", "من هو سيبويه وما كتابه الأشهر؟", "إمام النحاة العرب وتلميذ الخليل؛ ألّف أعظم مرجع في النحو العربي واشتهر تقديراً لمكانته باسم «الكتاب»."],
+      ["l", "من أول أديب عربي فاز بجائزة نوبل في الأدب؟", "الروائي المصري نجيب محفوظ عام 1988م عن مجمل أعماله كـ«الثلاثية» و«زقاق المدق» و«أولاد حارتنا»."],
+      ["l", "من هو جبران خليل جبران وما كتابه العالمي الأشهر؟", "أديب وفنان لبناني من رواد المهجر؛ يُعد كتابه «النبي» من أكثر الكتب ترجمةً وانتشاراً في العالم."],
+      ["l", "ما دور بدر شاكر السياب في الشعر الحديث؟", "شاعر عراقي رائد أسهم مع نازك الملائكة في تأسيس «شعر التفعيلة» (الشعر الحر)، ومن أشهر قصائده «أنشودة المطر»."],
+      ["l", "ما هي «الموشحات» الأندلسية؟", "فن شعري غنائي نشأ في الأندلس في القرن التاسع، يتميز بتعدد أوزانه وتنوع قوافيه وارتباطه الوثيق بالموسيقى."],
+      ["l", "ما كتاب «كليلة ودمنة» ومن نقله للعربية؟", "كتاب حِكم وأمثال سياسية وأخلاقية على ألسنة الحيوانات، ترجمه ابن المقفع بأسلوب عربي بليغ فأصبح من روائع النثر."],
+      ["l", "من هو ويليام شكسبير؟", "شاعر وكاتب مسرحي إنجليزي (1564–1616) خلّد مآسي وكوميديات عالمية مثل «هاملت» و«ماكبث» و«روميو وجولييت»."],
+      ["l", "بماذا اشتهر الروائي الروسي دوستويفسكي؟", "رائد الرواية النفسية والفلسفية؛ سبر صراعات الضمير والذنب والحرية في «الجريمة والعقاب» و«الإخوة كارامازوف»."],
+      ["l", "ما هي «الواقعية السحرية» ومن أبرز روادها؟", "أسلوب أدبي يمزج الواقع اليومي بالخيال والأسطورة، وبلغ ذروته في «مئة عام من العزلة» لغابرييل غارسيا ماركيز."],
+      ["l", "لماذا تُسمّى اللغة العربية «لغة الضاد»؟", "لأن صوت حرف الضاد بصفته الفصيحة القديمة كان يُعد فريداً في مخارجه بين اللغات الإنسانية المعروفة آنذاك."],
+      ["l", "ما هو فن «المقامات» في الأدب العربي؟", "قصص قصيرة مصوغة بنثر مسجوع رفيع تجمع بين الطرافة والبلاغة، ابتكرها بديع الزمان الهمذاني وطورها الحريري."],
+      ["l", "من هو «عميد الأدب العربي» وما سيرته الذاتية الأشهر؟", "الأديب المصري طه حسين الذي تحدى فقدان البصر ليقود نهضة التعليم والنقد، وخلّد طفولته في كتابه «الأيام»."],
+      ["l", "ما أقدم ملحمة أدبية مكتوبة في تاريخ البشرية؟", "«ملحمة جلجامش» التي دُوّنت بالمسمارية في بلاد الرافدين قبل نحو 4,000 عام وتبحث في الصداقة والسعي للخلود."],
+      ["l", "ما هو شعر «الهايكو» الياباني؟", "قصيدة موجزة من 17 مقطعاً صوتياً في ثلاثة أسطر (5-7-5) تلتقط بتأمل عميق لحظة عابرة في الطبيعة."],
+      ["l", "من هو أبو العلاء المعري؟", "شاعر وفيلسوف عربي عُرف بـ«رهين المحبسين»، ومن أبرز أعماله «اللزوميات» و«رسالة الغفران»."],
+      ["l", "من مؤلف «الكوميديا الإلهية»؟", "الشاعر الإيطالي دانتي أليغييري في القرن الرابع عشر، وكتبها بالإيطالية الدارجة فأسس للغة الإيطالية الحديثة."],
+      ["l", "ما أشهر معجم لغوي تراثي شامل في العربية؟", "معجم «لسان العرب» لابن منظور، الذي جمع خلاصة خمسة معاجم كبرى وضم قرابة 80 ألف مادة لغوية."],
+      ["l", "ما فروع علم البلاغة العربية الثلاثة؟", "علم المعاني (مطابقة الكلام لمقتضى الحال)، وعلم البيان (التشبيه والاستعارة والكناية)، وعلم البديع (المحسنات)."],
+      ["l", "من هو الشاعر محمود درويش؟", "من أبرز شعراء العربية المعاصرين، ارتبط شعره بفلسطين والهوية والإنسانية بأسلوب جمالي وإيقاع عالمي."],
+      ["l", "كم عدد جذور الكلمات التقريبي في العربية؟", "تضم العربية نحو 12 ألف جذر لغوي تولّد بالاشتقاق ملايين المفردات الدقيقة، مما يجعلها من أغنى لغات العالم."],
+
+      // ===================== [g] جغرافيا وعجائب (25 معلومة) =====================
+      ["g", "ما أطول نهر وأغزر نهر في العالم؟", "نهر النيل في أفريقيا هو الأطول بنحو 6,650 كم، بينما نهر الأمازون في أمريكا الجنوبية هو الأغزر مياهاً والأكبر حوضاً."],
+      ["g", "ما أعلى قمة جبلية فوق مستوى سطح البحر؟", "قمة إيفرست في جبال الهيمالايا بارتفاع 8,848.86 متراً، ولا تزال ترتفع بضعة مليمترات سنوياً."],
+      ["g", "ما هي صحراء الربع الخالي؟", "أكبر صحراء رملية متصلة في العالم؛ تغطي الثلث الجنوبي من شبه الجزيرة العربية بمساحة تقارب 650 ألف كم²."],
+      ["g", "لماذا تطفو الأجسام بسهولة في البحر الميت؟", "لأنه أخفض نقطة يابسة على الأرض (-430 م) وتبلغ ملوحته نحو 34%، ما يرفع كثافة مائه بشكل كبير."],
+      ["g", "ما أعلى شلال متواصل في العالم؟", "شلالات «آنجل» في فنزويلا بارتفاع إجمالي يبلغ 979 متراً، حيث تتحول المياه إلى رذاذ قبل بلوغ القاع."],
+      ["g", "ما هو الحاجز المرجاني العظيم؟", "أضخم منظومة حية من الشعاب المرجانية على الأرض؛ يمتد لأكثر من 2,300 كم قبالة ساحل أستراليا ويُرى من الفضاء."],
+      ["g", "ما سبب ظاهرة الشفق القطبي (Aurora)؟", "تصادم الجسيمات المشحونة القادمة من الرياح الشمسية مع ذرات الأكسجين والنيتروجين في أعالي الغلاف الجوي قرب القطبين."],
+      ["g", "ما أطول سلسلة جبلية قارية على اليابسة؟", "جبال الأنديز في غرب أمريكا الجنوبية، وتمتد لمسافة تتجاوز 7,000 كيلومتر عبر سبع دول."],
+      ["g", "ما أهمية قناة السويس ومضيق هرمز؟", "تربط قناة السويس البحر المتوسط بالأحمر فتختصر التجارة العالمية، بينما يربط مضيق هرمز الخليج العربي ببحر العرب."],
+      ["g", "ما أكبر صحراء على كوكب الأرض مساحةً؟", "القارة القطبية الجنوبية (أنتاركتيكا) كصحراء جليدية باردة بمساحة 14 مليون كم²، تليها الصحراء الكبرى كأكبر صحراء حارة."],
+      ["g", "ما العجيبة الوحيدة الباقية من عجائب الدنيا السبع القديمة؟", "الهرم الأكبر في الجيزة بمصر، بينما اندثرت بقية العجائب القديمة كحدائق بابل ومنارة الإسكندرية بفعل الزمن والزلازل."],
+      ["g", "ما مكانة مدينة بابل التاريخية في العراق؟", "إحدى أعظم حواضر العالم القديم على ضفاف الفرات؛ اشتهرت ببوابة عشتار وشريعة حمورابي والحدائق المعلقة."],
+      ["g", "ما أكثر صحراء غير قطبية جفافاً في العالم؟", "صحراء «أتاكاما» في شمال تشيلي، وتُستخدم تربتها الشبيهة بالمريخ لاختبار مركبات الفضاء."],
+      ["g", "ما هي «نقطة نيمو» في المحيط الهادئ؟", "أبعد نقطة بحرية عن أي يابسة على الكوكب، حتى إن رواد محطة الفضاء الدولية يكونون أحياناً أقرب البشر إليها."],
+      ["g", "ما هي «حلقة النار» في المحيط الهادئ؟", "حزام جيولوجي نشط يحيط بالمحيط الهادئ وتقع فيه نحو 90% من زلازل العالم و75% من براكينه النشطة."],
+      ["g", "ما أعمق نقطة في محيطات العالم؟", "«تشالنجر ديب» في خندق ماريانا بالمحيط الهادئ، بعمق يصل إلى نحو 11 كيلومتراً تحت سطح البحر."],
+      ["g", "ما أكبر محيط وأكبر قارة على الأرض؟", "المحيط الهادئ هو الأكبر ويغطي نحو ثلث سطح الكوكب، وآسيا هي أكبر القارات مساحةً وسكاناً."],
+      ["g", "بماذا تشتهر جزر غالاباغوس؟", "أرخبيل بركاني معزول في الإكوادور يضم كائنات فريدة ألهمت تشارلز داروين في صياغة نظرية التطور."],
+      ["g", "ما هي ظاهرة «شمس منتصف الليل»؟", "ظاهرة تحدث صيفاً قرب القطبين بسبب ميل محور الأرض، حيث لا تغرب الشمس وتبقى مرئية طوال 24 ساعة."],
+      ["g", "ما أعمق بحيرة مياه عذبة في العالم؟", "بحيرة بايكال في سيبيريا بعمق 1,642 متراً، وتحتوي وحدها على نحو 20% من المياه العذبة السائلة على الأرض."],
+      ["g", "ما أكبر بحيرة (مسطح مائي داخلي) في العالم؟", "بحر قزوين بين آسيا وأوروبا؛ ورغم تسميته بحراً لملوحته ومساحته الهائلة، فهو جغرافياً أكبر بحيرة مغلقة."],
+      ["g", "ما هو الأخدود العظيم (غراند كانيون)؟", "وادٍ صخري مهيب في أريزونا بطول 446 كم وعمق 1.8 كم نحته نهر كولورادو عبر ملايين السنين."],
+      ["g", "ما أعلى جبل في قارة أفريقيا؟", "جبل كليمنجارو في تنزانيا بارتفاع 5,895 متراً، وهو بركان خامد تكسو الثلوج قمته قرب خط الاستواء."],
+      ["g", "ما النهران اللذان أعطيا «بلاد الرافدين» اسمها؟", "دجلة والفرات؛ ينبعان من هضبة الأناضول ويلتقيان في جنوب العراق عند شط العرب، وعلى ضفافهما قامت أعرق الحضارات."],
+      ["g", "أي دولة تضم أكبر عدد من الجزر في العالم؟", "السويد بأكثر من 267 ألف جزيرة، تليها النرويج وفنلندا، ومعظمها جزر صغيرة غير مأهولة."],
+
+      // ===================== [m] طب وعلم نفس (25 معلومة) =====================
+      ["m", "ما هو «تأثير البلاسيبو» (الدواء الوهمي)؟", "تحسّن حقيقي في أعراض المريض عند تناول مادة بلا مكوّن دوائي لمجرد اعتقاده الصادق بأنها علاج فعّال."],
+      ["m", "ما هو «منحنى إبنغهاوس للنسيان»؟", "نموذج يوضح سرعة نسيان المعلومات الجديدة دون مراجعة، ويثبت أن «التكرار المتباعد» هو أنجح وسيلة لترسيخها."],
+      ["m", "ما هي «متلازمة المحتال»؟", "حالة نفسية يشعر فيها أشخاص أكفاء بأنهم لا يستحقون نجاحهم ويخشون أن يُكتشف أمرهم كـ«محتالين» رغم إنجازاتهم."],
+      ["m", "ما المقصود بـ «الانحياز التأكيدي»؟", "ميل العقل اللاواعي للبحث عن الأدلة التي تؤيد معتقداته المسبقة وتفسيرها لصالحها مع تجاهل ما يخالفها."],
+      ["m", "ما الفرق بين الدوبامين والسيروتونين؟", "يرتبط الدوبامين بالتحفيز والمكافأة والسعي، بينما ينظّم السيروتونين المزاج والاستقرار النفسي والنوم والشهية."],
+      ["m", "ما مرحلة نوم «حركة العين السريعة» (REM)؟", "مرحلة ينشط فيها الدماغ وتحدث فيها معظم الأحلام الواضحة، وتؤدي دوراً حاسماً في تثبيت الذكريات."],
+      ["m", "ما هو «هرم ماسلو» للاحتياجات؟", "تدرّج لدوافع الإنسان يبدأ بالحاجات الفسيولوجية، ثم الأمان، فالانتماء، فالتقدير، وينتهي في القمة بـ«تحقيق الذات»."],
+      ["m", "ما هو «الذكاء العاطفي»؟", "القدرة على إدراك مشاعرك ومشاعر الآخرين وفهمها وإدارتها بحكمة، وهو عنصر جوهري في النجاح الاجتماعي والقيادي."],
+      ["m", "ما هو «تأثير دانينغ-كروغر»؟", "انحياز معرفي يبالغ فيه قليلو الخبرة في تقدير كفاءتهم، بينما يميل الخبراء أحياناً إلى التواضع وتقليل شأن قدراتهم."],
+      ["m", "ما هي «الخلايا العصبية المرآتية»؟", "خلايا دماغية تنشط عند أداء فعل ما أو عند مشاهدة آخر يؤديه، وتُسهم في التعاطف والتعلّم بالمحاكاة."],
+      ["m", "كم مرة ينبض قلب الإنسان يومياً تقريباً؟", "نحو 100,000 نبضة يومياً ليضخ قرابة 7,200 لتر من الدم عبر شبكة أوعية دموية هائلة الطول."],
+      ["m", "كيف تعمل الذاكرة المناعية في الجسم؟", "تحتفظ خلايا المناعة التكيّفية بسجل لمسببات الأمراض أو اللقاحات السابقة، فتواجهها بسرعة فائقة إذا عادت مجدداً."],
+      ["m", "ما هي «البصمة الوراثية»؟", "نمط فريد من تسلسلات الحمض النووي (DNA) يميّز كل فرد عن غيره باستثناء التوائم المتطابقة."],
+      ["m", "ما هو «تأثير زايغارنيك» في الذاكرة؟", "ميل الدماغ لتذكّر المهام غير المكتملة بوضوح أكبر من المنجزة، ما يفسّر بقاء القصص غير المنتهية عالقة في الذهن."],
+      ["m", "ما المقصود بـ «المرونة العصبية» (Neuroplasticity)؟", "قدرة الدماغ المستمرة طوال الحياة على تكوين روابط عصبية جديدة وإعادة تنظيم نفسه استجابةً للتعلم والخبرة."],
+      ["m", "ما هو «تأثير الهالة» (Halo Effect)؟", "انحياز يجعل انطباعنا الإيجابي عن سمة ظاهرة في شخص ما ينسحب تلقائياً على تقييمنا لبقية صفاته."],
+      ["m", "ما دور هرمون «الكورتيزول»؟", "يُعرف بهرمون التوتر؛ يهيئ الجسم لمواجهة الخطر، لكن ارتفاعه المزمن يضعف المناعة والذاكرة والنوم."],
+      ["m", "ما هي «الساعة البيولوجية»؟", "نظام توقيت داخلي بالدماغ ينسّق دورات النوم واليقظة وإفراز الميلاتونين وحرارة الجسم وفق الضوء والظلام."],
+      ["m", "أي فصيلة دم تُعرف بـ «المعطي العام» لكريات الدم الحمراء؟", "فصيلة (O سالب) لخلوها من مستضدات A وB وRh، بينما فصيلة (AB موجب) هي «المستقبل العام»."],
+      ["m", "ما هو «الميكروبيوم» المعوي؟", "تريليونات البكتيريا النافعة في أمعائنا التي تسهم في الهضم وتصنيع الفيتامينات والمناعة والتأثير في المزاج."],
+      ["m", "ما هو «انحياز الارتساء»؟", "اعتماد العقل المفرط على أول رقم أو معلومة يتلقاها عند اتخاذ القرار أو تقدير الأسعار."],
+      ["m", "ما هو «تأثير المتفرج» في علم النفس الاجتماعي؟", "انخفاض احتمال تدخّل الفرد لمساعدة شخص في مأزق كلما زاد عدد الحضور حوله بسبب تشتّت المسؤولية."],
+      ["m", "ما الفرق بين الذاكرة العاملة والذاكرة طويلة المدى؟", "الذاكرة العاملة تحتفظ بالمعلومات مؤقتاً لثوانٍ أثناء التفكير، بينما تحفظ طويلة المدى المعارف لسنوات أو مدى الحياة."],
+      ["m", "ما هي حالة «التدفّق» (Flow) النفسية؟", "حالة اندماج وتركيز عميق في نشاط متقن يتوازن فيه التحدي مع المهارة، فيتلاشى الشعور بمرور الوقت."],
+      ["m", "لماذا يُسمّى فيتامين د «فيتامين الشمس»؟", "لأن الجلد يصنّعه طبيعياً عند التعرّض لأشعة الشمس فوق البنفسجية، وهو ضروري لامتصاص الكالسيوم وصحة العظام والمناعة."],
+
+      // ===================== [t] تكنولوجيا واختراعات (25 معلومة) =====================
+      ["t", "ما الفرق بين «الإنترنت» و«الشبكة العنكبوتية» (Web)؟", "الإنترنت هو البنية التحتية العالمية التي تربط الشبكات، أما الويب (التي ابتكرها تيم بيرنرز لي 1989م) فهي نظام صفحات وروابط يعمل فوق الإنترنت."],
+      ["t", "لماذا يُعد «الترانزستور» أعظم اختراع إلكتروني حديث؟", "ابتُكر عام 1947م كمفتاح ومضخّم إلكتروني دقيق حلّ محل الصمامات المفرّغة ومهّد لظهور المعالجات والحواسيب والهواتف."],
+      ["t", "ما هي «آلة تورنغ» ومن ابتكرها؟", "نموذج رياضي نظري للحوسبة صاغه آلان تورنغ عام 1936م ووضع به الأسس النظرية لكل الحواسيب الحديثة."],
+      ["t", "أين اختُرع الورق والبوصلة والبارود؟", "في الصين القديمة؛ إذ نُسب الورق إلى تساي لون نحو 105م وطوّر الصينيون البوصلة المغناطيسية التي غيّرت الملاحة."],
+      ["t", "من نفّذ أول رحلة طيران آلي متحكَّم بها؟", "الأخوان أورفيل وويلبر رايت عام 1903م في «كيتي هوك» برحلة استمرت 12 ثانية وافتتحت عصر الطيران."],
+      ["t", "ما جوهر «حرب التيارات» بين تيسلا وإديسون؟", "دافع إديسون عن التيار المستمر (DC) بينما طوّر تيسلا التيار المتردد (AC) الذي انتصر لكفاءته في نقل الكهرباء لمسافات بعيدة."],
+      ["t", "كيف غيّر التلسكوب والمجهر العلم الحديث؟", "كشف التلسكوب مع غاليليو أعماق الفضاء وأقمار المشتري، بينما كشف المجهر عالماً خفياً من الخلايا والميكروبات."],
+      ["t", "ما هو «الذكاء الاصطناعي» وتعلّم الآلة؟", "فرع حاسوبي يبني أنظمة قادرة على الفهم والتعلم واتخاذ القرار، وتعتمد نماذجه الحديثة على الشبكات العصبية العميقة."],
+      ["t", "كيف يعمل نظام تحديد المواقع العالمي (GPS)؟", "يستقبل جهازك إشارات زمنية بالغة الدقة من أربعة أقمار صناعية على الأقل ويحسب الموقع مع تصحيحات النسبية."],
+      ["t", "ما هي الطباعة ثلاثية الأبعاد؟", "تقنية تصنيع إضافي تبني الأجسام طبقة تلو الأخرى من نموذج رقمي، وتُستخدم في الطب والفضاء والعمارة."],
+      ["t", "بماذا تختلف «الحوسبة الكمية» عن التقليدية؟", "تستخدم «الكيوبت» القادر على تمثيل 0 و1 معاً بالتراكب الكمي بدلاً من «البت» التقليدي، لحل مسائل بالغة التعقيد."],
+      ["t", "ما هي «شيفرة مورس»؟", "نظام ترميز للاتصالات ابتكره صمويل مورس لتمثيل الحروف بنقاط وشرطات عبر التلغراف، ومن أشهر إشاراتها (SOS)."],
+      ["t", "كيف تنقل «الألياف الضوئية» البيانات بسرعات هائلة؟", "تحوّل البيانات إلى نبضات ضوئية تسير عبر خيوط زجاجية دقيقة بظاهرة الانعكاس الداخلي الكلي."],
+      ["t", "من طوّر المحرك البخاري العملي الذي أطلق الثورة الصناعية؟", "المهندس الإسكتلندي جيمس واط بإضافة المكثف المنفصل، فضاعف كفاءته وحرّك المصانع والقطارات والسفن."],
+      ["t", "كيف اكتشف رونتغن الأشعة السينية (X-rays)؟", "اكتشفها بالصدفة عام 1895م والتقط أول صورة لعظام يد زوجته، ونال عنها أول جائزة نوبل في الفيزياء عام 1901م."],
+      ["t", "ما هي تقنية «البلوك تشين» (سلسلة الكتل)؟", "سجل رقمي موزع ولا مركزي تُحفظ فيه البيانات في كتل مشفّرة مترابطة يصعب تزويرها دون إجماع الشبكة."],
+      ["t", "ما اسم أول قمر صناعي أُطلق إلى الفضاء ومتى؟", "«سبوتنيك 1»؛ أطلقه الاتحاد السوفيتي في 4 أكتوبر 1957م فدشّن رسمياً عصر الفضاء."],
+      ["t", "من أين جاء اسم تقنية «البلوتوث»؟", "تيمّناً بالملك الدنماركي هارالد «ذو السن الأزرق» الذي وحّد قبائل إسكندنافيا، كما توحّد التقنية اتصال الأجهزة لاسلكياً."],
+      ["t", "ما المقصود بـ «الليزر» (LASER)؟", "شعاع ضوئي مركز أحادي الطول الموجي ومترابط الأطوار يُنتج بالانبعاث المحفّز للإشعاع، ويُستخدم في الجراحة والاتصالات."],
+      ["t", "من سجّل براءة اختراع الهاتف العملي؟", "ألكسندر غراهام بيل عام 1876م، فاتحاً عصر الاتصالات الصوتية المباشرة عبر الأسلاك."],
+      ["t", "من هو المهندس الجزري وما علاقته بالروبوتات؟", "بديع الزمان الجزري (1136–1206م)؛ ألّف «الحيل الهندسية» وصمّم ساعات مائية وآلات ذاتية الحركة ومضخات رائدة."],
+      ["t", "ما هو «قانون مور» في صناعة المعالجات؟", "ملاحظة غوردون مور عام 1965م بأن عدد الترانزستورات على الرقاقة الإلكترونية يتضاعف تقريباً كل عامين."],
+      ["t", "ما هو «التشفير بالمفتاح العام»؟", "نظام أمني يستخدم مفتاحاً عاماً للتشفير وآخر خاصاً لفك التشفير، وهو أساس أمان التجارة الإلكترونية والمحادثات."],
+      ["t", "ما دور تقنية «كريسبر» (CRISPR) في البيولوجيا؟", "أداة ثورية دقيقة لتعديل الجينات تشبه «المقص الجزيئي»، تفتح آفاقاً واسعة لعلاج الأمراض الوراثية."],
+      ["t", "ما هي «الحوسبة السحابية» (Cloud Computing)؟", "توفير الخوادم والتخزين والبرمجيات عبر الإنترنت عند الطلب بدلاً من تشغيلها على جهاز محلي واحد."],
+
+      // ===================== [a] فنون وعمارة (25 معلومة) =====================
+      ["a", "ما أبرز أنواع الخط العربي الكلاسيكية؟", "الكوفي (الهندسي العريق)، والنسخ (الواضح للكتب)، والثلث (سيد الخطوط)، والرقعة (العملي)، والديواني، والفارسي."],
+      ["a", "ما هي «المقرنصات» في العمارة الإسلامية؟", "عناصر زخرفية ثلاثية الأبعاد تشبه خلايا النحل المتدرجة تُستخدم للانتقال الجمالي بين الجدران المربعة والقباب الدائرية."],
+      ["a", "أين يقع «تاج محل» ولماذا شُيّد؟", "في أغرة بالهند؛ بناه الإمبراطور شاه جهان من الرخام الأبيض تخليداً لزوجته ممتاز محل، ويُعد آية في التناظر."],
+      ["a", "ما هو «الكولوسيوم» في روما؟", "أكبر مدرّج روماني بيضاوي اكتمل عام 80م واتسع لأكثر من 50 ألف متفرج، مجسّداً براعة الرومان في الأقواس."],
+      ["a", "ما سرّ غموض ابتسامة «الموناليزا»؟", "استخدام دا فنشي تقنية «السفوماتو» (التدرج الضبابي الناعم للظلال) فتبدو الابتسامة متغيرة حسب زاوية النظر."],
+      ["a", "من رسم لوحة «ليلة النجوم» الشهيرة؟", "الرسام الهولندي فينسنت فان غوخ عام 1889م بضربات فرشاة دوّامية مفعمة بالعاطفة والحركة السماوية."],
+      ["a", "ما المعجزة الفنية في حياة بيتهوفن؟", "رغم إصابته بالصمم التدريجي ثم الكامل، ألّف أعظم أعماله مثل «السيمفونية التاسعة» اعتماداً على خياله السمعي الداخلي."],
+      ["a", "من هو زرياب وما إضافته للعود والموسيقى؟", "موسيقار انتقل من بغداد لقرطبة في القرن التاسع؛ أضاف الوتر الخامس للعود واستخدم ريشة النسر وأسس أول معهد موسيقي."],
+      ["a", "ما هي «المقامات» في الموسيقى العربية؟", "سلالم موسيقية تتضمن أرباع الأصوات وتمنح كل مقام طابعاً وجدانياً، أشهرها الراست والبياتي والحجاز والنهاوند والكرد."],
+      ["a", "ما الذي ميّز فنون «عصر النهضة» الأوروبي؟", "إحياء التراث الكلاسيكي وتطبيق المنظور الهندسي والتشريح الدقيق والواقعية الإنسانية على يد دا فنشي ومايكل أنجلو ورافائيل."],
+      ["a", "بماذا يتميّز طراز «الباروك» الفني؟", "أسلوب ساد القرن السابع عشر واتسم بالفخامة والدراما والتفاصيل الزخرفية الكثيفة والتباين القوي بين الضوء والظل."],
+      ["a", "ما هو فن «الأوريغامي» الياباني؟", "فن طي الورق لتحويل ورقة مربعة إلى مجسمات دقيقة دون قص أو لصق، وتُستلهم مبادئه في هندسة الألواح الفضائية."],
+      ["a", "من قدّم أول عرض سينمائي عام للجمهور؟", "الأخوان لوميير في باريس عام 1895م بجهاز «السينماتوغراف» وعرضا أفلاماً قصيرة كوصول القطار."],
+      ["a", "ما هو فن «الأرابيسك»؟", "زخرفة إسلامية تقوم على تشابك الأشكال الهندسية والنباتية في إيقاع متكرر لانهائي يرمز للانسجام والوحدة."],
+      ["a", "ما هي «النسبة الذهبية» (1.618) في الفن؟", "نسبة رياضية (φ) تظهر في الطبيعة واستخدمها الفنانون والمعماريون لتحقيق توازن بصري مريح للعين."],
+      ["a", "من هو فولفغانغ أماديوس موتسارت؟", "مؤلف موسيقي نمساوي عبقري من العصر الكلاسيكي بدأ التلحين في الخامسة وأنتج أكثر من 600 عمل موسيقي وأوبرا."],
+      ["a", "ما هي المدرسة «الانطباعية» في الرسم؟", "حركة فرنسية بالقرن التاسع عشر (من روادها مونيه) تلتقط اللحظة العابرة وتغيّر الضوء الطبيعي بضربات فرشاة سريعة."],
+      ["a", "ما هو فن «الفسيفساء» (الموزاييك)؟", "تشكيل لوحات وزخارف بقطع صغيرة ملونة من الحجر والزجاج، ومن أروع نماذجه الفسيفساء الأموية في الجامع الأموي بدمشق."],
+      ["a", "من أسّس المدرسة «التكعيبية» في الفن الحديث؟", "بابلو بيكاسو وجورج براك مطلع القرن العشرين بتفكيك الأشكال إلى سطوح هندسية تُعرض من عدة زوايا معاً."],
+      ["a", "ما أبرز سمات «العمارة القوطية»؟", "الأقواس المدببة والأكتاف الطائرة والارتفاع الشاهق والنوافذ الضخمة ذات الزجاج المعشّق الملون."],
+      ["a", "ما الذي يميّز تصميم «دار أوبرا سيدني»؟", "سقوفها الصدفية البيضاء المتشابكة التي تشبه أشرعة السفن، صمّمها المعماري الدنماركي يورن أوتزون."],
+      ["a", "ما هو «فن الإبرو» (الرسم على الماء)؟", "فن شرقي تُنثر فيه أصباغ طبيعية فوق ماء كثيف ثم تُشكّل بزخارف رخامية وتُنقل برفق إلى ورقة."],
+      ["a", "من هي المعمارية العراقية زها حديد؟", "أول امرأة تفوز بجائزة «بريتزكر» للعمارة؛ اشتهرت بتصاميمها المستقبلية الانسيابية الجريئة حول العالم."],
+      ["a", "ما هو «المشربية» في العمارة العربية التقليدية؟", "شبكة خشبية مخرّمة تغطي النوافذ فتلطّف حرارة الشمس وتسمح بمرور النسيم مع الحفاظ على الخصوصية وجمال الظلال."],
+      ["a", "ما أقدم مسرح إغريقي اشتُهر بصفاء صوته المعماري؟", "مسرح «إبيداوروس» في اليونان من القرن الرابع ق.م، حيث يُسمع همس الممثل بوضوح من أعلى الصفوف بفضل هندسته الصوتية."]
+    ];
+
+    // المصفوفة الموحدة النشطة: (معلومات Google Sheets أولاً + الموسوعة المدمجة)
+    let ALL_FACTS = [];
+
+    // =========================================================================
+    // 4. إدارة الحالة والتخزين المحلي (LocalStorage)
+    // =========================================================================
+    const STORAGE_KEY = "mishkat_v4_state";
+    const THEME_KEY = "mishkat_v4_theme";
+    const INTERVALS = [1, 3, 7, 14, 30];
+
+    let state = {
+      cards: [],              // بطاقات المراجعة الذكية SRS
+      favorites: [],          // مفاتيح الأسئلة المفضلة
+      dailyKeys: [],          // مفاتيح بطاقات اليوم
+      dailyPos: 0,
+      dailyDate: -1,
+      dailySize: 20,          // 10 / 20 / 30
+      dailyCat: "all",        // all | sheet | رمز التصنيف
+      streak: 0,
+      lastStreakDay: -1,
+      xp: 0,
+      quizBest: 0,
+      wikiSavedCount: 0,
+      nextId: 1,
+      // إعدادات وكاش Google Sheets
+      sheetId: DEFAULT_SHEET_ID,
+      sheetRawUrl: DEFAULT_SHEET_URL,
+      sheetFacts: [],         // الصفوف المجلوبة والمحفوظة للعمل دون إنترنت: [cat, q, a]
+      sheetLastSync: null
+    };
+
+    // حالة الواجهة والتفاعل
+    let currentTab = "explore"; // explore | daily | review | quiz | wiki | studio
+    let theme = "dark";
+    let spotlightIdx = 0;
+
+    // حالة مزامنة Google Sheets الحية
+    let sheetStatus = "loading"; // loading | ok | error
+    let sheetErrorMsg = "";
+    let sheetUsedEndpoint = "";
+
+    // فلاتر الموسوعة
+    let expFilter = "all"; // all | sheet | fav | s | h | p | l | g | m | t | a | o
+    let expSearch = "";
+    let expLimit = 18;
+
+    // بطاقات اليوم والمراجعة
+    let cardFlipped = false;
+    let reviewRevealed = false;
+
+    // حالة تحدي الثقافة (Quiz)
+    let quiz = {
+      active: false,
+      cat: "all",
+      count: 10,
+      questions: [],
+      index: 0,
+      score: 0,
+      answered: false,
+      chosenIdx: null
+    };
+
+    // حالة ويكيبيديا العربية
+    let wiki = {
+      query: "",
+      loading: false,
+      error: "",
+      results: [],
+      article: null
+    };
+
+    let studioSearch = "";
+
+    // دوال مساعدة أساسية
+    function todayNum() {
+      const d = new Date();
+      return Math.floor((d.getTime() - d.getTimezoneOffset() * 60000) / 86400000);
+    }
+
+    function esc(str) {
+      return String(str == null ? "" : str).replace(/[&<>"]/g, c => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"
+      }[c]));
+    }
+
+    /**
+     * تطبيع النصوص العربية للمقارنة ومنع التكرار الدقيق
+     * يوحّد الهمزات والتاء المربوطة ويزيل علامات الترقيم والمسافات الزائدة
+     */
+    function normalizeArabic(str) {
+      return String(str || "")
+        .trim()
+        .replace(/[\u064B-\u065F\u0670]/g, "") // إزالة التشكيل
+        .replace(/[أإآ]/g, "ا")
+        .replace(/ة/g, "ه")
+        .replace(/ى/g, "ي")
+        .replace(/[؟?!.،,:;؛«»"']/g, "")
+        .replace(/\s+/g, " ")
+        .toLowerCase();
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem("mishkat_v3_state");
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          state = Object.assign(state, parsed);
+        } else {
+          // ترحيل من ذاكرتي الطويلة إن وجدت
+          const legRaw = localStorage.getItem("srs_ar_v1");
+          if (legRaw) {
+            const leg = JSON.parse(legRaw);
+            if (Array.isArray(leg.cards)) state.cards = leg.cards;
+            if (leg.st) state.streak = leg.st;
+            if (leg.ld) state.lastStreakDay = leg.ld;
+            if (leg.id) state.nextId = leg.id;
+          }
+        }
+        theme = localStorage.getItem(THEME_KEY) || localStorage.getItem("mishkat_v3_theme") || "dark";
+      } catch (e) {
+        console.warn("تعذر قراءة التخزين المحلي:", e);
+      }
+
+      // ضمان وجود معرف الجدول الافتراضي إذا لم يُحدد مسبقاً
+      if (!state.sheetId && !state.sheetRawUrl) {
+        state.sheetId = DEFAULT_SHEET_ID;
+        state.sheetRawUrl = DEFAULT_SHEET_URL;
+      }
+      if (!state.sheetId && state.sheetRawUrl) {
+        state.sheetId = extractSheetId(state.sheetRawUrl) || DEFAULT_SHEET_ID;
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {}
+    }
+
+    function applyTheme() {
+      document.documentElement.setAttribute("data-theme", theme);
+      const btn = document.getElementById("theme-btn");
+      if (btn) btn.innerHTML = theme === "dark" ? "☀️ فاتح" : "🌙 داكن";
+    }
+
+    function toggleTheme() {
+      theme = theme === "dark" ? "light" : "dark";
+      try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+      applyTheme();
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      if (!t) return;
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove("show"), 3000);
+    }
+
+    function copyToClipboard(text, successMsg = "📋 تم النسخ إلى الحافظة!") {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        showToast(successMsg);
+      } catch (e) {
+        showToast("تعذر النسخ التلقائي");
+      }
+      document.body.removeChild(ta);
+    }
+
+    function getStreak() {
+      const t = todayNum();
+      return (state.lastStreakDay === t || state.lastStreakDay === t - 1) ? (state.streak || 0) : 0;
+    }
+
+    function getDueCards() {
+      const t = todayNum();
+      return state.cards.filter(c => c.due <= t);
+    }
+
+    function addCardToSRS(cat, q, a, delay = 0, box = 0) {
+      state.cards.push({
+        id: state.nextId++,
+        cat: CATS[cat] ? cat : "o",
+        q: String(q).trim(),
+        a: String(a).trim(),
+        box: box,
+        due: todayNum() + delay
+      });
+    }
+
+    // =========================================================================
+    // 5. محرك Google Sheets المتكامل (الاستخراج، التطبيع، RFC-4180 CSV، التبديل الاحتياطي)
+    // =========================================================================
+
+    /**
+     * استخراج معرّف الجدول (Sheet ID) من أي رابط Google Sheets أو قبول المعرف مباشرة
+     */
+    function extractSheetId(input) {
+      const s = String(input || "").trim();
+      if (!s) return "";
+      const m = s.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]{15,})/i);
+      if (m && m[1] !== "e") return m[1];
+      if (/^[a-zA-Z0-9-_]{20,}$/.test(s)) return s;
+      return "";
+    }
+
+    /**
+     * محلل CSV قياسي متوافق مع RFC-4180:
+     * يدعم UTF-8 والعربية، إزالة BOM، الحقول المقتبسة، الفواصل والأسطر داخل الاقتباسات،
+     * وتنظيف المسافات الزائدة من جميع العناوين والخلايا
+     */
+    function parseCSV(text) {
+      const clean = String(text || "").replace(/^\uFEFF/, "");
+      const rows = [];
+      let row = [];
+      let cell = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < clean.length; i++) {
+        const ch = clean[i];
+        const next = clean[i + 1];
+
+        if (inQuotes) {
+          if (ch === '"' && next === '"') {
+            cell += '"';
+            i++;
+          } else if (ch === '"') {
+            inQuotes = false;
+          } else {
+            cell += ch;
+          }
+        } else {
+          if (ch === '"') {
+            inQuotes = true;
+          } else if (ch === ",") {
+            row.push(cell.trim());
+            cell = "";
+          } else if (ch === "\r" && next === "\n") {
+            row.push(cell.trim());
+            rows.push(row);
+            row = [];
+            cell = "";
+            i++;
+          } else if (ch === "\n" || ch === "\r") {
+            row.push(cell.trim());
+            rows.push(row);
+            row = [];
+            cell = "";
+          } else {
+            cell += ch;
+          }
+        }
+      }
+
+      if (cell.length > 0 || row.length > 0) {
+        row.push(cell.trim());
+        rows.push(row);
+      }
+
+      return rows.filter(r => r.some(v => v !== ""));
+    }
+
+    /**
+     * التطبيع الذكي للتصنيفات العربية:
+     * يزيل المسافات، يعالج «ال» التعريف، يوحّد أ/إ/آ -> ا و ة -> ه
+     */
+    function normalizeCategory(rawCat) {
+      let v = normalizeArabic(rawCat);
+      if (!v) return "o";
+      if (CATS[v]) return v;
+
+      // نسخة بدون «ال» التعريف من بداية الكلمات
+      const noAl = v.replace(/(^|\s)ال(?=\S)/g, "$1").trim();
+      const tests = [v, noAl];
+
+      for (const s of tests) {
+        if (s === "s" || /^(علوم|فضاء|فلك|فيزياء|كيمياء|احياء)/.test(s) || /(علوم|فضاء|فلك|فيزياء|كيمياء|احياء|علم)/.test(s)) return "s";
+        if (s === "h" || /(تاريخ|حضار|تراث)/.test(s)) return "h";
+        if (s === "p" || /(فلسف|فكر|منطق)/.test(s)) return "p";
+        if (s === "l" || /(ادب|لغه|شعر|نثر|بلاغه)/.test(s)) return "l";
+        if (s === "g" || /(جغرافي|عجائب|دول|خرائط)/.test(s)) return "g";
+        if (s === "m" || /(طب|صحه|نفس|علم النفس|دماغ)/.test(s)) return "m";
+        if (s === "t" || /(تكنولوج|تقني|اختراع|حاسوب|برمج|ذكاء)/.test(s)) return "t";
+        if (s === "a" || /(فنون|فن|عماره|موسيقي|رسم|خط)/.test(s)) return "a";
+      }
+      return "o";
+    }
+
+    /**
+     * استخلاص الصفوف المعرفية الصالحة من نص CSV مع كشف صف العناوين تلقائياً
+     */
+    function extractFactsFromCSV(csvText) {
+      const rows = parseCSV(csvText);
+      if (!rows.length) return [];
+
+      let startIdx = 0;
+      let catIdx = 0, qIdx = 1, aIdx = 2;
+
+      // فحص الصف الأول لمعرفة إن كان صف عناوين (مثل: التصنيف ,السؤال ,الإجابة )
+      const firstNorm = rows[0].map(c => normalizeArabic(c));
+      const joined = firstNorm.join(" ");
+      const isHeader = /(تصنيف|فئه|سؤال|عنوان|اجابه|جواب|category|question|answer)/.test(joined);
+
+      if (isHeader) {
+        startIdx = 1;
+        const foundCat = firstNorm.findIndex(c => /(تصنيف|فئه|مجال|category)/.test(c));
+        const foundQ = firstNorm.findIndex(c => /(سؤال|عنوان|معلومه|question|title)/.test(c));
+        const foundA = firstNorm.findIndex(c => /(اجابه|جواب|شرح|تفصيل|answer)/.test(c));
+        if (foundQ !== -1 && foundA !== -1) {
+          qIdx = foundQ;
+          aIdx = foundA;
+          catIdx = foundCat !== -1 ? foundCat : -1;
+        }
+      }
+
+      const items = [];
+      const seen = new Set();
+
+      for (let i = startIdx; i < rows.length; i++) {
+        const r = rows[i];
+        let rawCat = "", q = "", a = "";
+
+        if (r.length >= 3) {
+          rawCat = catIdx >= 0 ? (r[catIdx] || "") : "";
+          q = (r[qIdx] || "").trim();
+          a = (r[aIdx] || "").trim();
+          // دمج أي خلايا إضافية في الإجابة إن وجدت في النهاية
+          if (aIdx === 2 && r.length > 3) {
+            const extra = r.slice(3).filter(Boolean).join("، ");
+            if (extra) a = a ? `${a}، ${extra}` : extra;
+          }
+        } else if (r.length === 2) {
+          rawCat = "o";
+          q = r[0].trim();
+          a = r[1].trim();
+        } else {
+          continue;
+        }
+
+        if (!q || !a) continue;
+        const k = normalizeArabic(q);
+        if (!k || seen.has(k)) continue;
+        seen.add(k);
+
+        items.push([normalizeCategory(rawCat), q, a]);
+      }
+
+      return items;
+    }
+
+    /**
+     * دمج معلومات Google Sheets في مقدمة ALL_FACTS مع إعطائها الأولوية في إزالة التكرار الدقيق
+     */
+    function rebuildAllFacts() {
+      const combined = [];
+      const seen = new Set();
+
+      // 1. صفوف Google Sheets دائماً في المقدمة وبشارة واضحة
+      const sheetList = Array.isArray(state.sheetFacts) ? state.sheetFacts : [];
+      for (const row of sheetList) {
+        if (!Array.isArray(row) || row.length < 3) continue;
+        const q = String(row[1] || "").trim();
+        const a = String(row[2] || "").trim();
+        if (!q || !a) continue;
+        const key = normalizeArabic(q);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        combined.push({
+          cat: CATS[row[0]] ? row[0] : "o",
+          q,
+          a,
+          key,
+          fromSheet: true
+        });
+      }
+
+      // 2. الموسوعة المدمجة (مع استبعاد النسخة المدمجة فقط إذا تطابق السؤال حرفياً بعد التطبيع لصالح صف الجدول)
+      for (const row of BASE_FACTS) {
+        const q = row[1];
+        const a = row[2];
+        const key = normalizeArabic(q);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        combined.push({
+          cat: row[0],
+          q,
+          a,
+          key,
+          fromSheet: false
+        });
+      }
+
+      ALL_FACTS = combined;
+      if (spotlightIdx >= ALL_FACTS.length) {
+        spotlightIdx = 0;
+      }
+    }
+
+    /**
+     * جلب نص CSV من نقطة نهاية مع التحقق من عدم كون الرد صفحة HTML مغلقة
+     */
+    async function fetchCSVEndpoint(url) {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+      const text = await res.text();
+      const head = text.slice(0, 350).toLowerCase();
+      if (head.includes("<!doctype html") || head.includes("<html") || head.includes("accounts.google.com")) {
+        throw new Error("الجدول خاص أو يتطلب تسجيل دخول");
+      }
+      return text;
+    }
+
+    /**
+     * مزامنة حية وتلقائية مع Google Sheets باستخدام النقطة الأساسية والاحتياطية
+     */
+    async function syncGoogleSheet({ customUrl = null, manual = false } = {}) {
+      let targetUrl = customUrl !== null ? customUrl.trim() : (state.sheetRawUrl || DEFAULT_SHEET_URL);
+      let sheetId = extractSheetId(targetUrl);
+
+      // دعم روابط النشر المباشرة بصيغة /d/e/.../pub?output=csv إذا أدخلها المستخدم
+      const isDirectPubCsv = /\/spreadsheets\/d\/e\/[^/]+\/pub/i.test(targetUrl);
+
+      if (!sheetId && !isDirectPubCsv) {
+        sheetStatus = "error";
+        sheetErrorMsg = "الرابط المدخل لا يبدو كرابط Google Sheets صالح.";
+        updateSheetHud();
+        if (manual) showToast("⚠️ يرجى لصق رابط Google Sheets صحيح");
+        if (document.getElementById("sheet-modal-content")) renderSheetsModalBody();
+        return false;
+      }
+
+      sheetStatus = "loading";
+      sheetErrorMsg = "";
+      updateSheetHud();
+      if (document.getElementById("sheet-modal-content")) renderSheetsModalBody();
+
+      const ts = Date.now();
+      const endpoints = [];
+
+      if (isDirectPubCsv) {
+        const csvUrl = /output=csv/i.test(targetUrl)
+          ? targetUrl
+          : targetUrl.replace(/\/pubhtml/i, "/pub") + (targetUrl.includes("?") ? "&output=csv" : "?output=csv");
+        endpoints.push({ label: "Published CSV", url: `${csvUrl}&_t=${ts}` });
+      } else {
+        // النقطة الأساسية المطلوبة + النقطة الاحتياطية التلقائية
+        endpoints.push({
+          label: "gviz/tq CSV",
+          url: `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&_t=${ts}`
+        });
+        endpoints.push({
+          label: "export CSV",
+          url: `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&_t=${ts}`
+        });
+      }
+
+      let lastErr = null;
+      let csvText = null;
+
+      for (const ep of endpoints) {
+        try {
+          csvText = await fetchCSVEndpoint(ep.url);
+          sheetUsedEndpoint = ep.label;
+          break;
+        } catch (err) {
+          lastErr = err;
+        }
+      }
+
+      if (csvText === null) {
+        sheetStatus = "error";
+        sheetErrorMsg = "تعذّر الوصول إلى الجدول. تأكد من اتصالك بالإنترنت ومن ضبط المشاركة على «أي شخص لديه الرابط: عارض».";
+        if (lastErr && lastErr.message) {
+          console.warn("Google Sheets sync fallback error:", lastErr.message);
+        }
+        updateSheetHud();
+        if (manual) showToast("⚠️ تحقق من مشاركة الجدول (أي شخص لديه الرابط: عارض)");
+        if (document.getElementById("sheet-modal-content")) renderSheetsModalBody();
+        return false;
+      }
+
+      const parsed = extractFactsFromCSV(csvText);
+      const prevCount = state.sheetFacts.length;
+
+      state.sheetId = sheetId || state.sheetId;
+      state.sheetRawUrl = targetUrl;
+      state.sheetFacts = parsed;
+      state.sheetLastSync = new Date().toISOString();
+      if (prevCount === 0 && parsed.length > 0) {
+        state.xp += 25;
+      }
+
+      sheetStatus = "ok";
+      sheetErrorMsg = "";
+      saveState();
+      rebuildAllFacts();
+
+      // إذا وُجدت معلومات من الجدول، اجعل الإشراقة الأولى تعرض إحداها فور المزامنة الأولى
+      if (parsed.length > 0 && manual) {
+        spotlightIdx = 0;
+      }
+
+      updateHeader();
+      updateSheetHud();
+      renderNav();
+      renderView();
+      if (document.getElementById("sheet-modal-content")) renderSheetsModalBody();
+
+      if (manual) {
+        showToast(parsed.length > 0
+          ? `🟢 تمت المزامنة بنجاح! تم جلب ${parsed.length} معلومة من جدولك`
+          : "🟢 تم الاتصال بالجدول بنجاح (لا توجد صفوف معلومات بعد)");
+      }
+      return true;
+    }
+
+    function updateSheetHud() {
+      const grp = document.getElementById("sheet-hud-group");
+      const btn = document.getElementById("sheet-status-btn");
+      const ref = document.getElementById("sheet-refresh-btn");
+      if (!grp || !btn || !ref) return;
+
+      grp.classList.remove("is-ok", "is-warn", "is-err");
+      const count = state.sheetFacts.length;
+
+      if (sheetStatus === "loading") {
+        grp.classList.add("is-warn");
+        btn.innerHTML = `⏳ جاري المزامنة...`;
+        ref.innerHTML = `<span class="spin">🔄</span>`;
+        ref.disabled = true;
+      } else if (sheetStatus === "ok") {
+        grp.classList.add("is-ok");
+        btn.innerHTML = `🟢 Google Sheets (${count})`;
+        ref.innerHTML = `🔄`;
+        ref.disabled = false;
+      } else {
+        grp.classList.add("is-err");
+        btn.innerHTML = count > 0
+          ? `⚠️ محفوظ (${count}) · تحقق من المشاركة`
+          : `⚠️ تحقق من مشاركة الجدول`;
+        ref.innerHTML = `🔄`;
+        ref.disabled = false;
+      }
+    }
+
+    function formatSyncDate(iso) {
+      if (!iso) return "لم تتم المزامنة بعد";
+      try {
+        return new Date(iso).toLocaleString("ar", {
+          year: "numeric", month: "short", day: "numeric",
+          hour: "2-digit", minute: "2-digit"
+        });
+      } catch (e) {
+        return iso;
+      }
+    }
+
+    function openSheetsModal() {
+      document.getElementById("modal-root").innerHTML = `
+        <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
+          <div class="surface modal-box">
+            <button onclick="closeModal()" class="modal-close" aria-label="إغلاق">✕</button>
+            <div id="sheet-modal-content"></div>
+          </div>
+        </div>
+      `;
+      renderSheetsModalBody();
+    }
+
+    function renderSheetsModalBody() {
+      const root = document.getElementById("sheet-modal-content");
+      if (!root) return;
+
+      const count = state.sheetFacts.length;
+      const editUrl = state.sheetId
+        ? `https://docs.google.com/spreadsheets/d/${state.sheetId}/edit`
+        : (state.sheetRawUrl || DEFAULT_SHEET_URL);
+
+      let statusBanner = "";
+      if (sheetStatus === "loading") {
+        statusBanner = `<div class="alert-box alert-warn">⏳ <b>جاري الاتصال والمزامنة مع جدول Google Sheets...</b></div>`;
+      } else if (sheetStatus === "ok") {
+        statusBanner = `
+          <div class="alert-box alert-ok">
+            🟢 <b>الجدول متصل ومُزامَن بنجاح!</b><br>
+            تم جلب <b>${count}</b> معلومة من جدولك وتظهر في مقدمة الموسوعة بشارة «📊 من Google Sheets».<br>
+            <small>آخر مزامنة: ${formatSyncDate(state.sheetLastSync)} ${sheetUsedEndpoint ? `(${sheetUsedEndpoint})` : ""}</small>
+          </div>
+        `;
+      } else {
+        statusBanner = `
+          <div class="alert-box alert-err">
+            ⚠️ <b>تعذّرت المزامنة الحية الآن:</b> ${esc(sheetErrorMsg)}<br>
+            ${count > 0 ? `<small>تُعرض حالياً آخر ${count} معلومة محفوظة مؤقتاً في المتصفح.</small>` : ""}
+          </div>
+        `;
+      }
+
+      root.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div style="width:44px;height:44px;border-radius:14px;background:var(--ac-glow);color:var(--ac);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">📊</div>
+          <div>
+            <h2 style="margin:0;font-size:1.25rem;">جدول Google Sheets المتصل</h2>
+            <p class="muted" style="margin:2px 0 0;font-size:0.84rem;">أي صف تضيفه في جدولك يظهر تلقائياً في الموسوعة والبطاقات وتحدي الثقافة</p>
+          </div>
+        </div>
+
+        ${statusBanner}
+
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+          <a href="${esc(editUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1 1 200px;">
+            ✏️ افتح الجدول للتعديل ↗
+          </a>
+          <button onclick="syncGoogleSheet({ manual: true })" ${sheetStatus === "loading" ? "disabled" : ""} class="btn btn-outline-ac" style="flex:1 1 160px;">
+            🔄 تحديث الآن
+          </button>
+        </div>
+
+        <div style="padding:14px;border-radius:18px;background:var(--bg);border:1px solid var(--bd);margin-bottom:16px;">
+          <label for="custom-sheet-inp" class="kufi" style="display:block;font-size:0.86rem;font-weight:600;margin-bottom:8px;">
+            تغيير رابط الجدول (اختياري):
+          </label>
+          <input id="custom-sheet-inp" type="url" dir="ltr" value="${esc(state.sheetRawUrl || DEFAULT_SHEET_URL)}"
+            placeholder="https://docs.google.com/spreadsheets/d/..." style="margin-bottom:10px;font-size:0.82rem;">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <button onclick="applyCustomSheetUrl()" class="btn btn-primary btn-sm">🔗 ربط هذا الرابط</button>
+            <button onclick="resetDefaultSheet()" class="btn btn-ghost btn-sm">↩️ العودة لجدولي الافتراضي</button>
+          </div>
+        </div>
+
+        <div style="padding:14px;border-radius:18px;background:var(--bg);border:1px solid var(--bd);font-size:0.86rem;color:var(--mu);">
+          <b class="kufi" style="color:var(--tx);display:block;margin-bottom:6px;">🛠️ نصائح سريعة في حال تعذّر الجلب:</b>
+          <div style="line-height:1.8;">
+            1. افتح جدولك في Google Sheets واضغط زر <b>مشاركة (Share)</b> في الأعلى.<br>
+            2. من قسم «الوصول العام» غيّر الإعداد إلى: <b style="color:var(--ac);">أي شخص لديه الرابط ← عارض (Viewer)</b>.<br>
+            3. رتّب الأعمدة الثلاثة الأولى كالتالي: <b style="color:var(--tx);">التصنيف | السؤال | الإجابة</b>.<br>
+            4. يدعم الموقع التصنيفات العربية تلقائياً (العلوم، التاريخ، الفلسفة، الأدب، الجغرافيا، الطب، التكنولوجيا، الفنون، أو أي تصنيف عام).
+          </div>
+        </div>
+      `;
+    }
+
+    function applyCustomSheetUrl() {
+      const inp = document.getElementById("custom-sheet-inp");
+      if (!inp) return;
+      syncGoogleSheet({ customUrl: inp.value, manual: true });
+    }
+
+    function resetDefaultSheet() {
+      syncGoogleSheet({ customUrl: DEFAULT_SHEET_URL, manual: true });
+    }
+
+    // =========================================================================
+    // 6. الرأس والتنقل والإشراقة المعرفية
+    // =========================================================================
+    function updateHeader() {
+      const totalEl = document.getElementById("hdr-total");
+      if (totalEl) totalEl.textContent = ALL_FACTS.length;
+      document.getElementById("hud-streak").textContent = getStreak();
+      document.getElementById("hud-xp").textContent = state.xp || 0;
+
+      if (!ALL_FACTS.length) return;
+      const f = ALL_FACTS[spotlightIdx % ALL_FACTS.length];
+      const cat = CATS[f.cat] || CATS.o;
+      document.getElementById("spot-cat").textContent = `${cat.icon} ${cat.name}`;
+      const sb = document.getElementById("spot-sheet-badge");
+      if (sb) sb.style.display = f.fromSheet ? "inline-flex" : "none";
+      document.getElementById("spot-text").innerHTML =
+        `<b class="kufi text-ac">${esc(f.q)}</b> — ${esc(f.a)}`;
+    }
+
+    function rotateSpotlight() {
+      if (ALL_FACTS.length <= 1) return;
+      let next = Math.floor(Math.random() * ALL_FACTS.length);
+      if (next === spotlightIdx) next = (next + 1) % ALL_FACTS.length;
+      spotlightIdx = next;
+      updateHeader();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      cardFlipped = false;
+      reviewRevealed = false;
+      renderNav();
+      renderView();
+      if (tab === "wiki" && !wiki.article && !wiki.loading && !wiki.results.length) {
+        fetchRandomWikiArticle();
+      }
+    }
+
+    function renderNav() {
+      const dueCount = getDueCards().length;
+      const tabs = [
+        { id: "explore", label: "الموسوعة",       icon: "📚" },
+        { id: "daily",   label: "بطاقات اليوم",    icon: "🎴" },
+        { id: "review",  label: dueCount > 0 ? `المراجعة (${dueCount})` : "المراجعة", icon: "🧠" },
+        { id: "quiz",    label: "تحدي الثقافة",    icon: "🏆" },
+        { id: "wiki",    label: "استكشف بلا حدود", icon: "🌐" },
+        { id: "studio",  label: "حقيبتي",         icon: "✍️" }
+      ];
+
+      document.getElementById("main-nav").innerHTML = tabs.map(t => `
+        <button onclick="switchTab('${t.id}')" class="nav-btn ${t.id === currentTab ? "active" : ""}">
+          <span>${t.icon}</span>
+          <span class="lbl">${t.label}</span>
+        </button>
+      `).join("");
+
+      const nudge = document.getElementById("daily-nudge-root");
+      if (state.lastStreakDay !== todayNum() && currentTab !== "daily") {
+        nudge.innerHTML = `
+          <div onclick="switchTab('daily')" class="daily-nudge">
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.9rem;">
+              <span style="font-size:1.3rem;">🎴</span>
+              <span><b>بطاقات اليوم بانتظارك!</b> اقلب بطاقاتك اليومية لتثبيت المعرفة والحفاظ على سلسلتك.</span>
+            </div>
+            <span class="btn btn-primary btn-sm">ابدأ الآن</span>
+          </div>
+        `;
+      } else {
+        nudge.innerHTML = "";
+      }
+    }
+
+    function renderView() {
+      const view = document.getElementById("app-view");
+      view.classList.remove("anim-pop");
+      void view.offsetWidth;
+      view.classList.add("anim-pop");
+
+      if (currentTab === "explore") view.innerHTML = viewExplore();
+      else if (currentTab === "daily") view.innerHTML = viewDaily();
+      else if (currentTab === "review") view.innerHTML = viewReview();
+      else if (currentTab === "quiz") view.innerHTML = viewQuiz();
+      else if (currentTab === "wiki") view.innerHTML = viewWiki();
+      else if (currentTab === "studio") view.innerHTML = viewStudio();
+    }
+
+    // =========================================================================
+    // 7. التبويب 1: الموسوعة (بحث فوري، جدولك أولاً، فلاتر مع العدادات، مفضلة، ترقيم)
+    // =========================================================================
+    function viewExplore() {
+      const sheetCount = ALL_FACTS.filter(f => f.fromSheet).length;
+      const favCount = ALL_FACTS.filter(f => state.favorites.includes(f.key)).length;
+
+      const catCounts = {};
+      Object.keys(CATS).forEach(k => catCounts[k] = 0);
+      ALL_FACTS.forEach(f => {
+        if (catCounts[f.cat] !== undefined) catCounts[f.cat]++;
+      });
+
+      const qNorm = normalizeArabic(expSearch);
+      const qRaw = expSearch.trim().toLowerCase();
+
+      const filtered = [];
+      ALL_FACTS.forEach((f, idx) => {
+        if (expFilter === "sheet" && !f.fromSheet) return;
+        if (expFilter === "fav" && !state.favorites.includes(f.key)) return;
+        if (expFilter !== "all" && expFilter !== "sheet" && expFilter !== "fav" && f.cat !== expFilter) return;
+
+        if (qRaw) {
+          const hit = f.q.toLowerCase().includes(qRaw)
+            || f.a.toLowerCase().includes(qRaw)
+            || f.key.includes(qNorm)
+            || normalizeArabic(f.a).includes(qNorm);
+          if (!hit) return;
+        }
+        filtered.push({ idx, f });
+      });
+
+      const visible = filtered.slice(0, expLimit);
+      const hasMore = filtered.length > expLimit;
+      const catList = catCounts.o > 0 ? [...MAIN_CAT_KEYS, "o"] : MAIN_CAT_KEYS;
+
+      let html = `
+        <div class="stats-grid">
+          <div onclick="setExpFilter('all')" class="surface stat-box clickable">
+            <b class="text-ac">${ALL_FACTS.length}</b>
+            <span>إجمالي المعلومات</span>
+          </div>
+          <div onclick="setExpFilter('sheet')" class="surface stat-box clickable" style="${sheetCount > 0 ? "border-color:var(--ac);" : ""}">
+            <b class="${sheetCount > 0 ? "text-good" : "muted"}">${sheetCount}</b>
+            <span>📊 من جدولك الحي</span>
+          </div>
+          <div onclick="setExpFilter('fav')" class="surface stat-box clickable">
+            <b class="text-gold">${favCount}</b>
+            <span>❤️ في المفضلة</span>
+          </div>
+          <div onclick="switchTab('wiki')" class="surface stat-box clickable">
+            <b class="text-ac">∞</b>
+            <span>🌐 ويكيبيديا الحية</span>
+          </div>
+        </div>
+
+        <div class="surface filter-panel">
+          <div class="search-row">
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input id="exp-search-inp" type="text" value="${esc(expSearch)}"
+                oninput="onExploreSearch(this.value)"
+                placeholder="ابحث في ${ALL_FACTS.length} معلومة (مثلاً: المريخ، الخوارزمي، المتنبي، البلاسيبو)...">
+              ${expSearch ? `<button onclick="onExploreSearch('')" class="search-clear" aria-label="مسح البحث">✕</button>` : ""}
+            </div>
+            <button onclick="openRandomFactModal()" class="btn btn-primary" style="flex-shrink:0;">
+              🎲 معلومة عشوائية
+            </button>
+          </div>
+
+          <div class="chips-row">
+            <button onclick="setExpFilter('all')" class="chip ${expFilter === "all" ? "on" : ""}">
+              🌐 الكل (${ALL_FACTS.length})
+            </button>
+            <button onclick="setExpFilter('sheet')" class="chip sheet-chip ${expFilter === "sheet" ? "on" : ""}">
+              📊 من جدولك (${sheetCount})
+            </button>
+            <button onclick="setExpFilter('fav')" class="chip fav-chip ${expFilter === "fav" ? "on" : ""}">
+              ❤️ المفضلة (${favCount})
+            </button>
+            ${catList.map(k => `
+              <button onclick="setExpFilter('${k}')" class="chip ${expFilter === k ? "on" : ""}">
+                ${CATS[k].icon} ${CATS[k].name} (${catCounts[k]})
+              </button>
+            `).join("")}
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;padding:0 4px;font-size:0.86rem;">
+          <span class="kufi muted">عرض <b>${visible.length}</b> من أصل <b>${filtered.length}</b> معلومة</span>
+          ${(expFilter !== "all" || expSearch)
+            ? `<button onclick="resetExploreFilters()" class="kufi text-ac" style="background:none;border:0;text-decoration:underline;font-size:0.84rem;">إعادة ضبط الفلاتر</button>`
+            : ""}
+        </div>
+      `;
+
+      if (filtered.length === 0) {
+        const isSheetEmpty = expFilter === "sheet" && sheetCount === 0;
+        html += `
+          <div class="surface text-center" style="padding:42px 22px;">
+            <div style="font-size:2.8rem;margin-bottom:8px;">${isSheetEmpty ? "📊" : "🔭"}</div>
+            <h3 style="margin:0 0 8px;">
+              ${isSheetEmpty ? "لا توجد صفوف مُزامنة من جدولك بعد" : "لم نعثر على نتائج مطابقة"}
+            </h3>
+            <p class="muted" style="max-width:480px;margin:0 auto 18px;font-size:0.93rem;">
+              ${isSheetEmpty
+                ? "تحقق من أن جدول Google Sheets مضبوط على «أي شخص لديه الرابط: عارض» ويحتوي على صفوف تحت العناوين، ثم اضغط تحديث."
+                : (expSearch ? `لم نجد «${esc(expSearch)}» في الموسوعة المدمجة — يمكنك البحث عنها مباشرةً في ويكيبيديا العربية الحية!` : "جرّب تصنيفاً آخر أو تصفح كل المعلومات.")}
+            </p>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
+              ${isSheetEmpty ? `
+                <button onclick="syncGoogleSheet({ manual: true })" class="btn btn-primary">🔄 تحديث من Google Sheets</button>
+                <button onclick="openSheetsModal()" class="btn btn-ghost">⚙️ تفاصيل الجدول</button>
+              ` : ""}
+              ${expSearch ? `
+                <button onclick="searchCurrentExpInWiki()" class="btn btn-primary">🌐 ابحث في ويكيبيديا الحية</button>
+              ` : ""}
+              <button onclick="resetExploreFilters()" class="btn btn-ghost">عرض كل المعلومات</button>
+            </div>
+          </div>
+        `;
+        return html;
+      }
+
+      html += `<div class="facts-grid">`;
+      visible.forEach(({ idx, f }) => {
+        const cat = CATS[f.cat] || CATS.o;
+        const isFav = state.favorites.includes(f.key);
+        const inDeck = state.cards.some(c => normalizeArabic(c.q) === f.key);
+
+        html += `
+          <article onclick="openFactDetailModal(${idx})" class="themed-card fact-card ${cat.cls} ${f.fromSheet ? "from-sheet" : ""}">
+            <div>
+              <div class="fact-head">
+                <div class="fact-badges">
+                  ${f.fromSheet ? `<span class="badge-sheet">📊 من Google Sheets</span>` : ""}
+                  <span class="tag-cat">${cat.icon} ${cat.short}</span>
+                </div>
+                <div class="fact-tools" onclick="event.stopPropagation()">
+                  <button onclick="copyFactByIdx(${idx})" class="icon-btn" title="نسخ المعلومة" aria-label="نسخ">📋</button>
+                  <button onclick="toggleFavorite(${idx})" class="icon-btn" title="المفضلة" aria-label="مفضلة">
+                    ${isFav ? "❤️" : "🤍"}
+                  </button>
+                </div>
+              </div>
+              <h3 class="fact-q">${esc(f.q)}</h3>
+              <p class="fact-a">${esc(f.a)}</p>
+            </div>
+
+            <div class="fact-foot" onclick="event.stopPropagation()">
+              <button onclick="sendFactToReview(${idx})" class="mini-pill">
+                ${inDeck ? "✅ في المراجعة" : "🧠 أضف للمراجعة"}
+              </button>
+              <button onclick="openFactDetailModal(${idx})" class="kufi" style="background:none;border:0;font-size:0.8rem;opacity:0.88;">
+                اقرأ المزيد ←
+              </button>
+            </div>
+          </article>
+        `;
+      });
+      html += `</div>`;
+
+      if (hasMore) {
+        const rem = filtered.length - expLimit;
+        html += `
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px;">
+            <button onclick="expLimit += 18; renderView();" class="btn btn-primary">
+              عرض المزيد (+${Math.min(18, rem)} من أصل ${rem} متبقية)
+            </button>
+            <button onclick="expLimit = ${filtered.length}; renderView();" class="btn btn-ghost">
+              عرض الكل (${filtered.length})
+            </button>
+          </div>
+        `;
+      }
+
+      return html;
+    }
+
+    function onExploreSearch(val) {
+      expSearch = val;
+      expLimit = 18;
+      renderView();
+      const inp = document.getElementById("exp-search-inp");
+      if (inp) {
+        inp.focus();
+        inp.setSelectionRange(inp.value.length, inp.value.length);
+      }
+    }
+
+    function setExpFilter(filter) {
+      expFilter = filter;
+      expLimit = 18;
+      renderView();
+    }
+
+    function resetExploreFilters() {
+      expFilter = "all";
+      expSearch = "";
+      expLimit = 18;
+      renderView();
+    }
+
+    function searchCurrentExpInWiki() {
+      const term = expSearch.trim();
+      wiki.query = term;
+      currentTab = "wiki";
+      renderNav();
+      renderView();
+      runWikiSearch(term);
+    }
+
+    function toggleFavorite(idx) {
+      const f = ALL_FACTS[idx];
+      if (!f) return;
+      const pos = state.favorites.indexOf(f.key);
+      if (pos === -1) {
+        state.favorites.push(f.key);
+        state.xp += 5;
+        showToast("❤️ أُضيفت إلى المفضلة (+5 XP)");
+      } else {
+        state.favorites.splice(pos, 1);
+        showToast("أُزيلت من المفضلة");
+      }
+      saveState();
+      updateHeader();
+      renderView();
+    }
+
+    function copyFactByIdx(idx) {
+      const f = ALL_FACTS[idx];
+      if (!f) return;
+      copyToClipboard(`💡 ${f.q}\n${f.a}\n— موسوعة مِشْكاة المعرفة`);
+    }
+
+    function sendFactToReview(idx) {
+      const f = ALL_FACTS[idx];
+      if (!f) return;
+      if (state.cards.some(c => normalizeArabic(c.q) === f.key)) {
+        showToast("هذه المعلومة موجودة بالفعل في مراجعتك");
+        return;
+      }
+      addCardToSRS(f.cat, f.q, f.a, 0, 0);
+      state.xp += 10;
+      saveState();
+      updateHeader();
+      renderNav();
+      renderView();
+      showToast("🧠 أُضيفت إلى جدول المراجعة الذكية (+10 XP)");
+    }
+
+    function closeModal() {
+      document.getElementById("modal-root").innerHTML = "";
+    }
+
+    function openFactDetailModal(idx, isRandom = false) {
+      const f = ALL_FACTS[idx];
+      if (!f) return;
+      const cat = CATS[f.cat] || CATS.o;
+      const isFav = state.favorites.includes(f.key);
+      const inDeck = state.cards.some(c => normalizeArabic(c.q) === f.key);
+
+      document.getElementById("modal-root").innerHTML = `
+        <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
+          <div class="themed-card modal-box ${cat.cls}">
+            <button onclick="closeModal()" class="modal-close" aria-label="إغلاق">✕</button>
+            <div class="text-center" style="margin-bottom:18px;">
+              <div class="float-icon">${cat.icon}</div>
+              <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:12px;">
+                ${f.fromSheet ? `<span class="badge-sheet">📊 من Google Sheets</span>` : ""}
+                <span class="tag-cat">${cat.name}</span>
+              </div>
+              <h3 style="margin:0 0 12px;font-size:1.35rem;line-height:1.45;">${esc(f.q)}</h3>
+              <p style="margin:0;font-size:1.06rem;line-height:1.88;">${esc(f.a)}</p>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.18);">
+              <button onclick="sendFactToReview(${idx}); openFactDetailModal(${idx}, ${isRandom});" class="btn btn-primary btn-sm">
+                ${inDeck ? "✅ في جدول المراجعة" : "🧠 أضف للمراجعة"}
+              </button>
+              <button onclick="toggleFavorite(${idx}); openFactDetailModal(${idx}, ${isRandom});" class="btn btn-ghost btn-sm">
+                ${isFav ? "❤️ في المفضلة" : "🤍 مفضلة"}
+              </button>
+              <button onclick="copyFactByIdx(${idx})" class="btn btn-ghost btn-sm">📋 نسخ</button>
+              ${isRandom ? `<button onclick="openRandomFactModal()" class="btn btn-gold btn-sm">🎲 معلومة أخرى</button>` : ""}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function openRandomFactModal() {
+      if (!ALL_FACTS.length) return;
+      const idx = Math.floor(Math.random() * ALL_FACTS.length);
+      openFactDetailModal(idx, true);
+    }
+
+    // =========================================================================
+    // 8. التبويب 2: بطاقات اليوم ثلاثية الأبعاد (Daily 3D Flip Cards)
+    // =========================================================================
+    function buildDailySession(force = false) {
+      const t = todayNum();
+      const valid = state.dailyKeys.filter(k => ALL_FACTS.some(f => f.key === k));
+      if (!force && state.dailyDate === t && valid.length > 0) {
+        state.dailyKeys = valid;
+        return;
+      }
+
+      let pool = ALL_FACTS.filter(f => {
+        if (state.dailyCat === "all") return true;
+        if (state.dailyCat === "sheet") return f.fromSheet;
+        return f.cat === state.dailyCat;
+      });
+      if (!pool.length) pool = ALL_FACTS.slice();
+
+      // خلط مع ضمان إدراج بطاقات Google Sheets في بداية الاختيارات عند اختيار الكل
+      const sheetItems = pool.filter(f => f.fromSheet);
+      const otherItems = pool.filter(f => !f.fromSheet);
+      for (let i = otherItems.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [otherItems[i], otherItems[j]] = [otherItems[j], otherItems[i]];
+      }
+      const combined = [...sheetItems, ...otherItems];
+
+      state.dailyDate = t;
+      state.dailyKeys = combined.slice(0, Math.min(state.dailySize, combined.length)).map(f => f.key);
+      state.dailyPos = 0;
+      cardFlipped = false;
+      saveState();
+    }
+
+    function changeDailyConfig(newSize, newCat) {
+      if (newSize) state.dailySize = newSize;
+      if (newCat) state.dailyCat = newCat;
+      buildDailySession(true);
+      renderView();
+      showToast(`تم تجهيز جلسة جديدة (${state.dailyKeys.length} بطاقة)`);
+    }
+
+    function viewDaily() {
+      buildDailySession(false);
+      const total = state.dailyKeys.length;
+      const pos = state.dailyPos;
+      const sheetCount = ALL_FACTS.filter(f => f.fromSheet).length;
+
+      const controls = `
+        <div class="surface" style="padding:14px 16px;margin-bottom:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span class="kufi muted" style="font-size:0.82rem;">العدد:</span>
+            ${[10, 20, 30].map(sz => `
+              <button onclick="changeDailyConfig(${sz}, null)" class="chip ${state.dailySize === sz ? "on" : ""}" style="min-height:34px;padding:4px 12px;">${sz}</button>
+            `).join("")}
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;flex:1 1 200px;max-width:280px;">
+            <span class="kufi muted" style="font-size:0.82rem;white-space:nowrap;">التصنيف:</span>
+            <select onchange="changeDailyConfig(null, this.value)" style="padding:7px 10px;font-size:0.84rem;">
+              <option value="all" ${state.dailyCat === "all" ? "selected" : ""}>🌐 جميع التصنيفات</option>
+              ${sheetCount > 0 ? `<option value="sheet" ${state.dailyCat === "sheet" ? "selected" : ""}>📊 من جدولك فقط (${sheetCount})</option>` : ""}
+              ${MAIN_CAT_KEYS.map(k => `<option value="${k}" ${state.dailyCat === k ? "selected" : ""}>${CATS[k].icon} ${CATS[k].name}</option>`).join("")}
+            </select>
+          </div>
+        </div>
+      `;
+
+      if (pos >= total) {
+        return `
+          <div class="narrow-wrap">
+            ${controls}
+            <div class="surface text-center" style="padding:38px 22px;cursor:pointer;" onclick="boom(event.clientX, event.clientY, 100)">
+              <div class="float-icon">🎉</div>
+              <h2 style="margin:0 0 8px;">أنجزت بطاقات اليوم (${total} بطاقة)!</h2>
+              <p class="muted" style="margin:0 0 20px;">
+                🔥 سلسلتك الحالية: <b class="text-ac">${getStreak()} يوم متتالٍ</b> · اضغط هنا للاحتفال ✨<br>
+                أُضيفت البطاقات تلقائياً إلى جدول مراجعتك بالتكرار المتباعد.
+              </p>
+              <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
+                <button onclick="event.stopPropagation(); buildDailySession(true); renderView();" class="btn btn-primary">🔄 جلسة جديدة</button>
+                <button onclick="event.stopPropagation(); switchTab('review')" class="btn btn-ghost">🧠 انتقل للمراجعة</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      const f = ALL_FACTS.find(x => x.key === state.dailyKeys[pos]) || ALL_FACTS[0];
+      const cat = CATS[f.cat] || CATS.o;
+      const pct = Math.round((pos / total) * 100);
+
+      return `
+        <div class="narrow-wrap">
+          ${controls}
+
+          <div style="display:flex;justify-content:space-between;font-size:0.84rem;margin-bottom:6px;" class="kufi muted">
+            <span>البطاقة ${pos + 1} من ${total}</span>
+            <span>${pct}% مكتمل</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width:${pct}%;"></div>
+          </div>
+
+          <div class="flip-wrap ${cardFlipped ? "flipped" : ""}" onclick="flipDailyCard()">
+            <div class="flip-inner">
+              <div class="flip-face ${cat.cls}">
+                <div class="float-icon">${cat.icon}</div>
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:12px;">
+                  ${f.fromSheet ? `<span class="badge-sheet">📊 من Google Sheets</span>` : ""}
+                  <span class="tag-cat">${cat.name}</span>
+                </div>
+                <h2 style="margin:0;font-size:1.38rem;line-height:1.55;">${esc(f.q)}</h2>
+                <p class="kufi muted" style="margin:18px 0 0;font-size:0.84rem;">👆 اضغط على البطاقة لتقلبها</p>
+              </div>
+              <div class="flip-face flip-back ${cat.cls}">
+                <span class="tag-cat" style="margin-bottom:14px;">💡 الإجابة والشرح</span>
+                <p style="margin:0;font-size:1.12rem;line-height:1.88;font-weight:600;">${esc(f.a)}</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="daily-acts" class="row-2" style="display:${cardFlipped ? "grid" : "none"};">
+            <button onclick="gradeDaily(false, event)" class="btn btn-bad">لم أكن أعرفها (غداً)</button>
+            <button onclick="gradeDaily(true, event)" class="btn btn-primary">كنت أعرفها (+15 XP)</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function flipDailyCard() {
+      cardFlipped = !cardFlipped;
+      const el = document.querySelector(".flip-wrap");
+      if (el) el.classList.toggle("flipped", cardFlipped);
+      const acts = document.getElementById("daily-acts");
+      if (acts && cardFlipped) acts.style.display = "grid";
+    }
+
+    function gradeDaily(knew, ev) {
+      if (knew && ev) boom(ev.clientX, ev.clientY, 26);
+      const f = ALL_FACTS.find(x => x.key === state.dailyKeys[state.dailyPos]);
+      if (f && !state.cards.some(c => normalizeArabic(c.q) === f.key)) {
+        addCardToSRS(f.cat, f.q, f.a, knew ? 3 : 1, knew ? 1 : 0);
+      }
+      state.xp += knew ? 15 : 10;
+      state.dailyPos++;
+      cardFlipped = false;
+
+      if (state.dailyPos >= state.dailyKeys.length) {
+        const t = todayNum();
+        if (state.lastStreakDay !== t) {
+          state.streak = (state.lastStreakDay === t - 1) ? (state.streak || 0) + 1 : 1;
+          state.lastStreakDay = t;
+        }
+        state.xp += 50;
+        setTimeout(() => boom(window.innerWidth / 2, window.innerHeight / 3, 140), 200);
+        setTimeout(() => boom(window.innerWidth / 4, window.innerHeight / 2, 75), 520);
+      }
+
+      saveState();
+      updateHeader();
+      renderNav();
+      renderView();
+    }
+
+    // =========================================================================
+    // 9. التبويب 3: المراجعة الذكية بالتكرار المتباعد (SRS) + 8 شارات إنجاز
+    // =========================================================================
+    function viewReview() {
+      const due = getDueCards();
+      const mastered = state.cards.filter(c => c.box >= 3).length;
+
+      let html = `
+        <div class="narrow-wrap">
+          <div class="stats-grid">
+            <div class="surface stat-box">
+              <b class="text-ac">${due.length}</b>
+              <span>للمراجعة اليوم</span>
+            </div>
+            <div class="surface stat-box">
+              <b>${state.cards.length}</b>
+              <span>كل البطاقات</span>
+            </div>
+            <div class="surface stat-box">
+              <b class="text-good">${mastered}</b>
+              <span>بطاقات راسخة</span>
+            </div>
+            <div class="surface stat-box">
+              <b class="text-gold">${state.xp}</b>
+              <span>نقاط الخبرة</span>
+            </div>
+          </div>
+      `;
+
+      if (!due.length) {
+        html += `
+          <div class="surface text-center" style="padding:36px 22px;margin-bottom:18px;">
+            <div style="font-size:2.7rem;margin-bottom:8px;">🌿</div>
+            <h3 style="margin:0 0 8px;">لا توجد مراجعات مستحقة اليوم!</h3>
+            <p class="muted" style="max-width:480px;margin:0 auto 18px;font-size:0.94rem;">
+              يعمل التكرار المتباعد بفترات (1، 3، 7، 14، 30 يوماً) لترسيخ المعلومات في الذاكرة طويلة المدى.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
+              <button onclick="switchTab('daily')" class="btn btn-primary">🎴 بطاقات اليوم</button>
+              <button onclick="switchTab('explore')" class="btn btn-ghost">📚 تصفح الموسوعة</button>
+            </div>
+          </div>
+        `;
+      } else {
+        const c = due[0];
+        const cat = CATS[c.cat] || CATS.o;
+
+        html += `
+          <div class="themed-card text-center ${cat.cls}" style="padding:28px 22px;margin-bottom:14px;">
+            <div class="float-icon">${cat.icon}</div>
+            <span class="tag-cat" style="margin-bottom:12px;">${cat.name} · مرحلة التثبيت ${c.box + 1} من 5</span>
+            <h3 style="margin:0;font-size:1.35rem;line-height:1.55;">${esc(c.q)}</h3>
+            ${reviewRevealed ? `
+              <div class="anim-pop" style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.2);font-size:1.08rem;line-height:1.85;">
+                ${esc(c.a)}
+              </div>
+            ` : ""}
+          </div>
+
+          ${reviewRevealed ? `
+            <div class="row-2" style="margin-bottom:20px;">
+              <button onclick="gradeSRS(${c.id}, false)" class="btn btn-bad">لم أتذكرها (غداً)</button>
+              <button onclick="gradeSRS(${c.id}, true, event)" class="btn btn-primary">تذكرتها (+15 XP)</button>
+            </div>
+          ` : `
+            <button onclick="reviewRevealed = true; renderView();" class="btn btn-primary btn-block" style="margin-bottom:20px;">
+              👁️ أظهر الإجابة
+            </button>
+          `}
+        `;
+      }
+
+      // 8 شارات إنجاز متوهجة
+      const st = getStreak();
+      const totalCards = state.cards.length;
+      const badges = [
+        { icon: "🌱", name: "البذرة الأولى",  desc: "حفظ أول بطاقة",        on: totalCards >= 1 },
+        { icon: "🔥", name: "شعلة المثابرة",  desc: "سلسلة 3 أيام",         on: st >= 3 },
+        { icon: "🏔️", name: "أسبوع الالتزام", desc: "سلسلة 7 أيام",         on: st >= 7 },
+        { icon: "💎", name: "ذاكرة راسخة",    desc: "10 بطاقات راسخة",      on: mastered >= 10 },
+        { icon: "🏆", name: "بطل الثقافة",    desc: "80%+ في التحدي",       on: state.quizBest >= 80 },
+        { icon: "📚", name: "موسوعيّ نشط",    desc: "30 بطاقة محفوظة",      on: totalCards >= 30 },
+        { icon: "📊", name: "متصل بالجدول",   desc: "مزامنة Google Sheets", on: state.sheetFacts.length > 0 },
+        { icon: "🌐", name: "مستكشف ويكيبيديا", desc: "حفظ مقال من ويكيبيديا", on: (state.wikiSavedCount || 0) >= 1 }
+      ];
+
+      html += `
+        <div class="surface" style="padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <h3 style="margin:0;font-size:1.1rem;">🏅 شارات الإنجاز</h3>
+            <span class="kufi text-ac" style="font-size:0.84rem;">${badges.filter(b => b.on).length} / ${badges.length} مفتوحة</span>
+          </div>
+          <div class="badges-grid">
+            ${badges.map(b => `
+              <div class="badge-item ${b.on ? "unlocked" : ""}">
+                <div style="font-size:1.85rem;margin-bottom:4px;">${b.icon}</div>
+                <b class="kufi" style="display:block;font-size:0.84rem;">${b.name}</b>
+                <small class="muted" style="font-size:0.74rem;">${b.desc}</small>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+
+      html += `</div>`;
+      return html;
+    }
+
+    function gradeSRS(id, ok, ev) {
+      const c = state.cards.find(x => x.id === id);
+      if (!c) return;
+      if (ok) {
+        c.box = Math.min(c.box + 1, INTERVALS.length - 1);
+        c.due = todayNum() + INTERVALS[c.box];
+        state.xp += 15;
+        if (ev) boom(ev.clientX, ev.clientY, 24);
+        showToast(`ممتاز! المراجعة القادمة بعد ${INTERVALS[c.box]} يوم`);
+      } else {
+        c.box = 0;
+        c.due = todayNum() + 1;
+        showToast("ستعود لك غداً لترسيخها");
+      }
+      reviewRevealed = false;
+      saveState();
+      updateHeader();
+      renderNav();
+      renderView();
+    }
+
+    // =========================================================================
+    // 10. التبويب 4: تحدي الثقافة (Quiz Mode — 5 / 10 / 15 سؤال + شروحات)
+    // =========================================================================
+    function startQuiz() {
+      let pool = ALL_FACTS.filter(f => {
+        if (quiz.cat === "all") return true;
+        if (quiz.cat === "sheet") return f.fromSheet;
+        return f.cat === quiz.cat;
+      });
+      if (pool.length < 4) {
+        showToast("أقل من 4 معلومات في هذا القسم — سيتم التحدي من كامل الموسوعة");
+        pool = ALL_FACTS.slice();
+      }
+
+      // أولوية طفيفة لإدراج صفوف الجدول إن كان الاختيار «الكل»
+      const sheetRows = pool.filter(f => f.fromSheet);
+      const others = pool.filter(f => !f.fromSheet);
+      for (let i = others.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [others[i], others[j]] = [others[j], others[i]];
+      }
+      const mixed = [...sheetRows.slice(0, 3), ...others];
+      for (let i = mixed.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [mixed[i], mixed[j]] = [mixed[j], mixed[i]];
+      }
+
+      const selected = mixed.slice(0, Math.min(quiz.count, mixed.length));
+      quiz.questions = selected.map(correct => {
+        let distractors = ALL_FACTS.filter(x => x.key !== correct.key && x.cat === correct.cat).map(x => x.a);
+        if (distractors.length < 3) {
+          distractors = ALL_FACTS.filter(x => x.key !== correct.key).map(x => x.a);
+        }
+        for (let i = distractors.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [distractors[i], distractors[j]] = [distractors[j], distractors[i]];
+        }
+        const options = [
+          { text: correct.a, ok: true },
+          { text: distractors[0], ok: false },
+          { text: distractors[1], ok: false },
+          { text: distractors[2], ok: false }
+        ];
+        for (let i = options.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [options[i], options[j]] = [options[j], options[i]];
+        }
+        return {
+          cat: correct.cat,
+          q: correct.q,
+          explanation: correct.a,
+          fromSheet: correct.fromSheet,
+          options
+        };
+      });
+
+      quiz.active = true;
+      quiz.index = 0;
+      quiz.score = 0;
+      quiz.answered = false;
+      quiz.chosenIdx = null;
+      renderView();
+    }
+
+    function viewQuiz() {
+      const sheetCount = ALL_FACTS.filter(f => f.fromSheet).length;
+
+      if (!quiz.active) {
+        return `
+          <div class="narrow-wrap surface text-center" style="padding:30px 22px;">
+            <div class="float-icon">🏆</div>
+            <h2 style="margin:0 0 8px;">تحدي الثقافة العامة</h2>
+            <p class="muted" style="margin:0 0 18px;font-size:0.95rem;">
+              اختبر معلوماتك بأسئلة متعددة الخيارات تُولَّد من الموسوعة وجدولك (${ALL_FACTS.length} معلومة)!
+            </p>
+
+            ${state.quizBest > 0 ? `<div class="tag-gold" style="margin-bottom:18px;font-size:0.84rem;">🥇 أعلى نتيجة: ${state.quizBest}%</div>` : ""}
+
+            <div style="text-align:right;background:var(--bg);border:1px solid var(--bd);border-radius:18px;padding:16px;margin-bottom:20px;">
+              <div style="margin-bottom:14px;">
+                <label class="kufi muted" style="display:block;font-size:0.82rem;margin-bottom:6px;">مجال الأسئلة:</label>
+                <select onchange="quiz.cat = this.value">
+                  <option value="all" ${quiz.cat === "all" ? "selected" : ""}>🌐 جميع التصنيفات (متنوع)</option>
+                  ${sheetCount >= 4 ? `<option value="sheet" ${quiz.cat === "sheet" ? "selected" : ""}>📊 من جدولك فقط (${sheetCount})</option>` : ""}
+                  ${MAIN_CAT_KEYS.map(k => `<option value="${k}" ${quiz.cat === k ? "selected" : ""}>${CATS[k].icon} ${CATS[k].name}</option>`).join("")}
+                </select>
+              </div>
+              <div>
+                <label class="kufi muted" style="display:block;font-size:0.82rem;margin-bottom:6px;">عدد الأسئلة:</label>
+                <div class="row-3">
+                  ${[5, 10, 15].map(n => `
+                    <button onclick="quiz.count = ${n}; renderView();" class="btn btn-sm ${quiz.count === n ? "btn-primary" : "btn-ghost"}">${n} أسئلة</button>
+                  `).join("")}
+                </div>
+              </div>
+            </div>
+
+            <button onclick="startQuiz()" class="btn btn-primary" style="min-width:220px;">🚀 ابدأ التحدي الآن</button>
+          </div>
+        `;
+      }
+
+      if (quiz.index >= quiz.questions.length) {
+        const total = quiz.questions.length;
+        const pct = Math.round((quiz.score / total) * 100);
+        const msg = pct >= 90 ? "أداء أسطوري! أنت موسوعة متحركة بحق 🌟"
+                  : pct >= 70 ? "ثقافة رفيعة ومعلومات غزيرة 👏"
+                  : pct >= 50 ? "نتيجة جيدة جداً! واصل الاستكشاف 📚"
+                  : "بداية رائعة! تصفح الموسوعة وعد لجولة أقوى 🌱";
+
+        return `
+          <div class="narrow-wrap surface text-center" style="padding:36px 22px;">
+            <div class="float-icon">${pct >= 80 ? "🥇" : pct >= 50 ? "🥈" : "🌱"}</div>
+            <h2 style="margin:0 0 8px;">نتيجتك: ${quiz.score} من ${total} (${pct}%)</h2>
+            <p class="muted" style="margin:0 0 22px;">${msg}</p>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
+              <button onclick="startQuiz()" class="btn btn-primary">🔄 جولة جديدة</button>
+              <button onclick="quiz.active = false; renderView();" class="btn btn-ghost">⚙️ تغيير الإعدادات</button>
+            </div>
+          </div>
+        `;
+      }
+
+      const qObj = quiz.questions[quiz.index];
+      const cat = CATS[qObj.cat] || CATS.o;
+      const pct = Math.round((quiz.index / quiz.questions.length) * 100);
+      const isRightAnswer = quiz.answered && qObj.options[quiz.chosenIdx] && qObj.options[quiz.chosenIdx].ok;
+
+      return `
+        <div class="narrow-wrap">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.86rem;margin-bottom:6px;" class="kufi muted">
+            <span>السؤال ${quiz.index + 1} من ${quiz.questions.length}</span>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span>النقاط: <b class="text-ac">${quiz.score}</b></span>
+              <button onclick="quiz.active = false; renderView();" style="background:none;border:0;text-decoration:underline;font-size:0.8rem;color:var(--mu);">إنهاء</button>
+            </div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width:${pct}%;"></div>
+          </div>
+
+          <div class="themed-card ${cat.cls}" style="padding:22px;margin-bottom:14px;">
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">
+              ${qObj.fromSheet ? `<span class="badge-sheet">📊 من Google Sheets</span>` : ""}
+              <span class="tag-cat">${cat.icon} ${cat.name}</span>
+            </div>
+            <h3 style="margin:0;font-size:1.22rem;line-height:1.55;">${esc(qObj.q)}</h3>
+          </div>
+
+          <div>
+            ${qObj.options.map((opt, i) => {
+              let cls = "quiz-opt";
+              let mark = ["أ", "ب", "ج", "د"][i];
+              if (quiz.answered) {
+                if (opt.ok) { cls += " correct"; mark = "✓"; }
+                else if (i === quiz.chosenIdx) { cls += " wrong"; mark = "✕"; }
+                else cls += " dimmed";
+              }
+              return `
+                <button onclick="answerQuiz(${i}, event)" ${quiz.answered ? "disabled" : ""} class="${cls}">
+                  <span class="opt-letter">${mark}</span>
+                  <span>${esc(opt.text)}</span>
+                </button>
+              `;
+            }).join("")}
+          </div>
+
+          ${quiz.answered ? `
+            <div class="alert-box ${isRightAnswer ? "alert-ok" : "alert-warn"} anim-pop" style="margin-top:12px;">
+              <b>${isRightAnswer ? "✅ إجابة صحيحة! (+15 XP)" : "💡 الإجابة الصحيحة:"}</b><br>
+              ${esc(qObj.explanation)}
+            </div>
+            <button onclick="nextQuizStep()" class="btn btn-primary btn-block anim-pop">
+              ${quiz.index + 1 < quiz.questions.length ? "السؤال التالي ←" : "عرض النتيجة النهائية 🏆"}
+            </button>
+          ` : ""}
+        </div>
+      `;
+    }
+
+    function answerQuiz(optIdx, ev) {
+      if (quiz.answered) return;
+      quiz.answered = true;
+      quiz.chosenIdx = optIdx;
+
+      const ok = quiz.questions[quiz.index].options[optIdx].ok;
+      if (ok) {
+        quiz.score++;
+        state.xp += 15;
+        if (ev) boom(ev.clientX, ev.clientY, 26);
+      }
+
+      if (quiz.index + 1 === quiz.questions.length) {
+        const pct = Math.round((quiz.score / quiz.questions.length) * 100);
+        if (pct > state.quizBest) state.quizBest = pct;
+        if (pct >= 80) {
+          setTimeout(() => boom(window.innerWidth / 2, window.innerHeight / 3, 130), 220);
+        }
+      }
+
+      saveState();
+      updateHeader();
+      renderView();
+    }
+
+    function nextQuizStep() {
+      quiz.index++;
+      quiz.answered = false;
+      quiz.chosenIdx = null;
+      renderView();
+    }
+
+    // =========================================================================
+    // 11. التبويب 5: استكشف بلا حدود — ويكيبيديا العربية الحية + مقالات بديلة
+    // =========================================================================
+    const WIKI_TOPICS = [
+      "الحضارة السومرية", "الثقوب السوداء", "الأندلس", "ابن الهيثم",
+      "بيت الحكمة", "بابل", "الفلسفة الرواقية", "الذكاء الاصطناعي", "طريق الحرير"
+    ];
+
+    async function fetchRandomWikiArticle() {
+      wiki.loading = true;
+      wiki.error = "";
+      wiki.results = [];
+      renderView();
+
+      try {
+        const res = await fetch("https://ar.wikipedia.org/api/rest_v1/page/random/summary");
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        wiki.article = {
+          title: data.title,
+          description: data.description || "",
+          extract: data.extract || "لا يوجد ملخص متاح لهذا المقال.",
+          thumb: data.thumbnail ? data.thumbnail.source : "",
+          url: (data.content_urls && data.content_urls.desktop) ? data.content_urls.desktop.page : ""
+        };
+      } catch (e) {
+        wiki.error = "تعذّر الاتصال بويكيبيديا العربية حالياً. يمكنك تصفح هذه المقالات المختارة من مكتبتنا المدمجة أدناه!";
+      } finally {
+        wiki.loading = false;
+        if (currentTab === "wiki") renderView();
+      }
+    }
+
+    async function runWikiSearch(customTerm) {
+      const term = (customTerm !== undefined ? customTerm : wiki.query).trim();
+      if (!term) {
+        showToast("اكتب موضوعاً للبحث في ويكيبيديا العربية");
+        return;
+      }
+      wiki.query = term;
+      wiki.loading = true;
+      wiki.error = "";
+      renderView();
+
+      try {
+        const url = `https://ar.wikipedia.org/w/api.php?action=query&list=search&origin=*&format=json&srlimit=8&srsearch=${encodeURIComponent(term)}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        const list = (data.query && data.query.search) ? data.query.search : [];
+        wiki.results = list.map(r => ({
+          title: r.title,
+          snippet: r.snippet.replace(/<[^>]+>/g, "")
+        }));
+        if (list.length > 0) {
+          await fetchWikiSummary(list[0].title, false);
+        } else {
+          wiki.article = null;
+          wiki.error = `لم نجد مقالات في ويكيبيديا العربية تطابق «${term}».`;
+        }
+      } catch (e) {
+        wiki.error = "تعذّر الاتصال بخادم ويكيبيديا الآن. تصفّح المقترحات المدمجة أدناه.";
+      } finally {
+        wiki.loading = false;
+        if (currentTab === "wiki") renderView();
+      }
+    }
+
+    async function fetchWikiSummary(title, showLoad = true) {
+      if (showLoad) {
+        wiki.loading = true;
+        wiki.error = "";
+        renderView();
+      }
+      try {
+        const res = await fetch(`https://ar.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        wiki.article = {
+          title: data.title,
+          description: data.description || "",
+          extract: data.extract || "لا يوجد ملخص نصي متاح.",
+          thumb: data.thumbnail ? data.thumbnail.source : "",
+          url: (data.content_urls && data.content_urls.desktop) ? data.content_urls.desktop.page : ""
+        };
+      } catch (e) {
+        wiki.error = "تعذّر جلب ملخص هذا المقال حالياً.";
+      } finally {
+        if (showLoad) {
+          wiki.loading = false;
+          if (currentTab === "wiki") renderView();
+        }
+      }
+    }
+
+    function openWikiResultIdx(i) {
+      const r = wiki.results[i];
+      if (r) fetchWikiSummary(r.title, true);
+    }
+
+    function saveWikiArticle() {
+      if (!wiki.article) return;
+      const sel = document.getElementById("wiki-cat-sel");
+      const cat = sel ? sel.value : "o";
+      const q = `ما هو / من هو: ${wiki.article.title}؟`;
+      if (state.cards.some(c => normalizeArabic(c.q) === normalizeArabic(q))) {
+        showToast("هذا المقال محفوظ بالفعل في بطاقاتك");
+        return;
+      }
+      addCardToSRS(cat, q, wiki.article.extract, 0, 0);
+      state.wikiSavedCount = (state.wikiSavedCount || 0) + 1;
+      state.xp += 20;
+      saveState();
+      updateHeader();
+      renderNav();
+      showToast("✨ تم حفظ المقال كبطاقة مراجعة (+20 XP)");
+    }
+
+    function viewWiki() {
+      const fallbacks = [];
+      for (let i = 0; i < 3 && ALL_FACTS.length; i++) {
+        fallbacks.push((spotlightIdx + i * 23) % ALL_FACTS.length);
+      }
+
+      return `
+        <div class="medium-wrap">
+          <div class="surface" style="padding:20px;margin-bottom:16px;">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;">
+              <div>
+                <h2 style="margin:0;font-size:1.25rem;">🌐 استكشف بلا حدود (ويكيبيديا العربية)</h2>
+                <p class="muted" style="margin:2px 0 0;font-size:0.86rem;">ابحث عن أي موضوع ثقافي وحوّل المقال بضغطة واحدة إلى بطاقة مراجعة</p>
+              </div>
+              <button onclick="fetchRandomWikiArticle()" class="btn btn-primary btn-sm">🎲 مقال عشوائي</button>
+            </div>
+
+            <form onsubmit="event.preventDefault(); runWikiSearch();" style="display:flex;gap:8px;margin-bottom:12px;">
+              <input id="wiki-inp" type="text" value="${esc(wiki.query)}" oninput="wiki.query = this.value"
+                placeholder="ابحث عن أي موضوع: بابل، النسبية، المتنبي، اليابان...">
+              <button type="submit" class="btn btn-primary" style="flex-shrink:0;">بحث</button>
+            </form>
+
+            <div class="chips-row">
+              ${WIKI_TOPICS.map(t => `<button onclick="runWikiSearch('${t}')" class="chip" style="min-height:34px;padding:4px 12px;">${t}</button>`).join("")}
+            </div>
+          </div>
+
+          ${wiki.loading ? `
+            <div class="surface text-center" style="padding:42px 20px;">
+              <div class="float-icon">🛰️</div>
+              <p class="kufi" style="margin:0;">جاري جلب المقال من ويكيبيديا العربية...</p>
+            </div>
+          ` : ""}
+
+          ${!wiki.loading && wiki.error ? `
+            <div class="surface" style="padding:18px;margin-bottom:16px;border-color:var(--warn);">
+              <p class="kufi" style="margin:0 0 12px;color:var(--warn);">⚠️ ${esc(wiki.error)}</p>
+              <div class="facts-grid">
+                ${fallbacks.map(idx => {
+                  const f = ALL_FACTS[idx];
+                  const c = CATS[f.cat] || CATS.o;
+                  return `
+                    <div onclick="openFactDetailModal(${idx})" class="themed-card fact-card ${c.cls}" style="padding:14px;">
+                      <span class="tag-cat" style="margin-bottom:8px;">${c.icon} ${c.short}</span>
+                      <h4 style="margin:0;font-size:0.95rem;">${esc(f.q)}</h4>
+                    </div>
+                  `;
+                }).join("")}
+              </div>
+            </div>
+          ` : ""}
+
+          ${!wiki.loading && wiki.article ? `
+            <article class="surface anim-pop" style="padding:22px;margin-bottom:16px;">
+              <div class="wiki-card-flex">
+                ${wiki.article.thumb ? `
+                  <img src="${esc(wiki.article.thumb)}" alt="${esc(wiki.article.title)}"
+                    onerror="this.style.display='none'" class="wiki-thumb">
+                ` : ""}
+                <div style="flex:1;min-width:0;">
+                  <span class="badge-sheet" style="margin-bottom:8px;">📖 ويكيبيديا العربية</span>
+                  <h3 style="margin:0 0 4px;font-size:1.4rem;">${esc(wiki.article.title)}</h3>
+                  ${wiki.article.description ? `<p class="kufi muted" style="margin:0 0 10px;font-size:0.84rem;">${esc(wiki.article.description)}</p>` : ""}
+                  <p style="margin:0 0 16px;font-size:1rem;line-height:1.85;">${esc(wiki.article.extract)}</p>
+
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--bd);">
+                    <select id="wiki-cat-sel" style="width:auto;padding:8px 12px;font-size:0.84rem;">
+                      ${MAIN_CAT_KEYS.map(k => `<option value="${k}">${CATS[k].icon} ${CATS[k].short}</option>`).join("")}
+                      <option value="o">✨ ثقافة عامة</option>
+                    </select>
+                    <button onclick="saveWikiArticle()" class="btn btn-primary btn-sm">🧠 حفظ كبطاقة مراجعة</button>
+                    <button onclick="copyToClipboard(wiki.article.title + '\\n' + wiki.article.extract)" class="btn btn-ghost btn-sm">📋 نسخ</button>
+                    ${wiki.article.url ? `<a href="${esc(wiki.article.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-ac btn-sm">المقال الكامل ↗</a>` : ""}
+                  </div>
+                </div>
+              </div>
+            </article>
+          ` : ""}
+
+          ${!wiki.loading && wiki.results.length > 1 ? `
+            <div class="surface" style="padding:18px;">
+              <h4 style="margin:0 0 12px;">📑 نتائج أخرى ذات صلة</h4>
+              <div class="stack-md">
+                ${wiki.results.map((r, i) => `
+                  <button onclick="openWikiResultIdx(${i})" style="text-align:right;padding:13px;border-radius:16px;border:1px solid var(--bd);background:var(--bg);">
+                    <b class="kufi text-ac" style="display:block;margin-bottom:4px;">${esc(r.title)}</b>
+                    <span class="muted" style="font-size:0.84rem;font-family:'Noto Naskh Arabic',serif;">${esc(r.snippet)}...</span>
+                  </button>
+                `).join("")}
+              </div>
+            </div>
+          ` : ""}
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 12. التبويب 6: حقيبتي (إضافة بطاقات فردية/جماعية، إدارة المراجعة، JSON)
+    // =========================================================================
+    function viewStudio() {
+      const q = normalizeArabic(studioSearch);
+      const filtered = state.cards.filter(c =>
+        !q || normalizeArabic(c.q).includes(q) || normalizeArabic(c.a).includes(q)
+      );
+
+      return `
+        <div class="medium-wrap" style="display:flex;flex-direction:column;gap:16px;">
+          <div class="stack-md">
+            <!-- إضافة بطاقة فردية -->
+            <div class="surface" style="padding:20px;">
+              <h3 style="margin:0 0 4px;">✍️ إضافة بطاقة جديدة</h3>
+              <p class="muted" style="margin:0 0 12px;font-size:0.84rem;">تُضاف مباشرةً إلى جدول المراجعة الذكية</p>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <select id="st-cat">
+                  ${MAIN_CAT_KEYS.map(k => `<option value="${k}">${CATS[k].icon} ${CATS[k].name}</option>`).join("")}
+                  <option value="o">✨ ثقافة عامة</option>
+                </select>
+                <input id="st-q" type="text" placeholder="السؤال أو عنوان المعلومة...">
+                <textarea id="st-a" rows="3" placeholder="الإجابة أو الشرح..."></textarea>
+                <button onclick="handleSingleAdd()" class="btn btn-primary btn-block">+ حفظ البطاقة</button>
+              </div>
+            </div>
+
+            <!-- إضافة عدة بطاقات دفعة واحدة -->
+            <div class="surface" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between;">
+              <div>
+                <h3 style="margin:0 0 4px;">⚡ إضافة عدة بطاقات معاً</h3>
+                <p class="muted" style="margin:0 0 12px;font-size:0.84rem;">كل سطر بصيغة: <b>السؤال | الإجابة</b></p>
+                <textarea id="st-bulk" rows="6" placeholder="من مؤلف كتاب العين؟ | الخليل بن أحمد الفراهيدي&#10;ما عاصمة اليابان؟ | طوكيو" style="margin-bottom:10px;"></textarea>
+              </div>
+              <button onclick="handleBulkAdd()" class="btn btn-outline-ac btn-block">استيراد جميع السطور</button>
+            </div>
+          </div>
+
+          <!-- النسخ الاحتياطي JSON -->
+          <div class="surface" style="padding:20px;">
+            <h3 style="margin:0 0 4px;">💾 النسخ الاحتياطي واستعادة البيانات (JSON)</h3>
+            <p class="muted" style="margin:0 0 14px;font-size:0.84rem;">احفظ بطاقاتك ومفضلتك وسلسلتك على جهازك أو انقلها لمتصفح آخر</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <button onclick="exportBackupJSON()" class="btn btn-primary btn-sm">⬇️ تنزيل JSON</button>
+              <button onclick="copyBackupJSON()" class="btn btn-ghost btn-sm">📋 نسخ JSON</button>
+              <label class="btn btn-outline-ac btn-sm" style="cursor:pointer;">
+                ⬆️ استيراد ملف JSON
+                <input type="file" accept=".json,application/json" onchange="importBackupFile(event)" style="display:none;">
+              </label>
+              <button onclick="openPasteImportModal()" class="btn btn-ghost btn-sm">📥 لصق JSON</button>
+            </div>
+          </div>
+
+          <!-- قائمة بطاقات المراجعة الشخصية -->
+          <div class="surface" style="padding:20px;">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;">
+              <h3 style="margin:0;">🗂️ بطاقاتي في المراجعة (${state.cards.length})</h3>
+              ${state.cards.length ? `
+                <input id="st-search" type="text" value="${esc(studioSearch)}" oninput="onStudioSearch(this.value)"
+                  placeholder="ابحث في بطاقاتك..." style="max-width:240px;padding:7px 12px;font-size:0.85rem;">
+              ` : ""}
+            </div>
+
+            ${!filtered.length ? `
+              <p class="muted text-center" style="padding:22px 0;margin:0;">
+                ${state.cards.length === 0 ? "لا توجد بطاقات بعد. أضف بطاقاتك من الأعلى أو من الموسوعة!" : "لا توجد بطاقة مطابقة للبحث."}
+              </p>
+            ` : `
+              <div style="max-height:420px;overflow-y:auto;">
+                ${filtered.slice().reverse().map(c => {
+                  const cat = CATS[c.cat] || CATS.o;
+                  const diff = c.due - todayNum();
+                  const dueTxt = diff <= 0 ? "مستحقة اليوم" : `بعد ${diff} يوم`;
+                  return `
+                    <div class="srs-list-item">
+                      <div style="min-width:0;flex:1;">
+                        <div style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${esc(c.q)}</div>
+                        <small class="kufi muted">${cat.icon} ${cat.short} · ${dueTxt} · مرحلة ${c.box + 1}/5</small>
+                      </div>
+                      <button onclick="deleteCard(${c.id})" class="icon-btn text-bad" title="حذف البطاقة" aria-label="حذف">✕</button>
+                    </div>
+                  `;
+                }).join("")}
+              </div>
+            `}
+          </div>
+        </div>
+      `;
+    }
+
+    function onStudioSearch(v) {
+      studioSearch = v;
+      renderView();
+      const inp = document.getElementById("st-search");
+      if (inp) { inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); }
+    }
+
+    function handleSingleAdd() {
+      const cat = document.getElementById("st-cat").value;
+      const q = document.getElementById("st-q").value.trim();
+      const a = document.getElementById("st-a").value.trim();
+      if (!q || !a) {
+        showToast("يرجى إدخال السؤال والإجابة معاً");
+        return;
+      }
+      addCardToSRS(cat, q, a, 0, 0);
+      state.xp += 10;
+      saveState();
+      updateHeader();
+      renderNav();
+      renderView();
+      showToast("✅ تمت إضافة البطاقة (+10 XP)");
+    }
+
+    function handleBulkAdd() {
+      const lines = document.getElementById("st-bulk").value.split("\n");
+      let n = 0;
+      lines.forEach(l => {
+        const p = l.split("|");
+        if (p.length >= 2 && p[0].trim() && p[1].trim()) {
+          addCardToSRS("o", p[0].trim(), p.slice(1).join("|").trim(), 0, 0);
+          n++;
+        }
+      });
+      if (!n) {
+        showToast("تأكد من الصيغة: السؤال | الإجابة في كل سطر");
+        return;
+      }
+      state.xp += n * 5;
+      saveState();
+      updateHeader();
+      renderNav();
+      renderView();
+      showToast(`✨ تمت إضافة ${n} بطاقات بنجاح!`);
+    }
+
+    function deleteCard(id) {
+      state.cards = state.cards.filter(c => c.id !== id);
+      saveState();
+      renderNav();
+      renderView();
+      showToast("تم حذف البطاقة");
+    }
+
+    function exportBackupJSON() {
+      try {
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `mishkat-backup-${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast("⬇️ تم تنزيل ملف النسخة الاحتياطية!");
+      } catch (e) {
+        copyBackupJSON();
+      }
+    }
+
+    function copyBackupJSON() {
+      copyToClipboard(JSON.stringify(state), "📋 تم نسخ النسخة الاحتياطية (JSON)!");
+    }
+
+    function applyImportedJSON(text) {
+      try {
+        const obj = JSON.parse(text);
+        if (!obj || typeof obj !== "object" || !Array.isArray(obj.cards)) {
+          throw new Error("ملف غير صالح");
+        }
+        state = Object.assign(state, obj);
+        if (!state.sheetId) state.sheetId = DEFAULT_SHEET_ID;
+        saveState();
+        rebuildAllFacts();
+        updateHeader();
+        updateSheetHud();
+        renderNav();
+        renderView();
+        closeModal();
+        showToast(`✅ تمت استعادة ${state.cards.length} بطاقة بنجاح!`);
+      } catch (e) {
+        showToast("⚠️ صيغة JSON غير صحيحة");
+      }
+    }
+
+    function importBackupFile(ev) {
+      const f = ev.target.files && ev.target.files[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = () => applyImportedJSON(r.result);
+      r.onerror = () => showToast("تعذّرت قراءة الملف");
+      r.readAsText(f);
+    }
+
+    function openPasteImportModal() {
+      document.getElementById("modal-root").innerHTML = `
+        <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
+          <div class="surface modal-box">
+            <button onclick="closeModal()" class="modal-close" aria-label="إغلاق">✕</button>
+            <h3 style="margin:0 0 10px;">📥 استيراد نسخة احتياطية بلصق JSON</h3>
+            <textarea id="paste-json" rows="6" dir="ltr" placeholder='{"cards":[...]}' style="margin-bottom:14px;font-family:monospace;font-size:0.82rem;"></textarea>
+            <div style="display:flex;justify-content:flex-end;gap:8px;">
+              <button onclick="closeModal()" class="btn btn-ghost btn-sm">إلغاء</button>
+              <button onclick="applyImportedJSON(document.getElementById('paste-json').value)" class="btn btn-primary btn-sm">استعادة الآن</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 13. مؤثر الاحتفال البصري (Canvas Confetti — boom)
+    // =========================================================================
+    let confettiParticles = [];
+    let confettiRunning = false;
+    const CONF_COLORS = ["#8fd0a9", "#ebc87e", "#87d2f8", "#f8abc3", "#cabcf9", "#ffffff"];
+
+    function boom(x, y, n) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      let cv = document.getElementById("confetti-cv");
+      if (!cv) {
+        cv = document.createElement("canvas");
+        cv.id = "confetti-cv";
+        cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99;";
+        document.body.appendChild(cv);
+      }
+      cv.width = window.innerWidth;
+      cv.height = window.innerHeight;
+      const cx = x || cv.width / 2;
+      const cy = y || cv.height / 2;
+
+      for (let i = 0; i < n; i++) {
+        const a = Math.random() * Math.PI * 2;
+        const sp = 3 + Math.random() * 7.5;
+        confettiParticles.push({
+          x: cx, y: cy,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 4,
+          r: 3.5 + Math.random() * 4,
+          c: CONF_COLORS[i % CONF_COLORS.length],
+          l: 1,
+          rot: Math.random() * 6
+        });
+      }
+      if (!confettiRunning) {
+        confettiRunning = true;
+        tickBoom();
+      }
+    }
+
+    function tickBoom() {
+      const cv = document.getElementById("confetti-cv");
+      if (!cv) return;
+      const g = cv.getContext("2d");
+      g.clearRect(0, 0, cv.width, cv.height);
+      confettiParticles = confettiParticles.filter(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.2;
+        p.vx *= 0.99;
+        p.l -= 0.012;
+        p.rot += 0.12;
+        if (p.l <= 0) return false;
+        g.save();
+        g.globalAlpha = p.l;
+        g.fillStyle = p.c;
+        g.translate(p.x, p.y);
+        g.rotate(p.rot);
+        g.fillRect(-p.r, -p.r / 2, p.r * 2, p.r);
+        g.restore();
+        return true;
+      });
+      if (confettiParticles.length) {
+        requestAnimationFrame(tickBoom);
+      } else {
+        confettiRunning = false;
+        g.clearRect(0, 0, cv.width, cv.height);
+      }
+    }
+
+    // =========================================================================
+    // 14. التشغيل التلقائي عند تحميل الصفحة + المزامنة الفورية مع Google Sheets
+    // =========================================================================
+    window.addEventListener("DOMContentLoaded", () => {
+      loadState();
+      applyTheme();
+      rebuildAllFacts();
+      spotlightIdx = ALL_FACTS.some(f => f.fromSheet) ? 0 : Math.floor(Math.random() * ALL_FACTS.length);
+      buildDailySession(false);
+      updateHeader();
+      updateSheetHud();
+      renderNav();
+      renderView();
+
+      // مزامنة تلقائية فورية مع جدول Google Sheets الخاص بالمستخدم
+      syncGoogleSheet({ manual: false });
+    });
+  </script>
+</body>
+</html>
